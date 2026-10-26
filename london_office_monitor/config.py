@@ -49,14 +49,14 @@ class Settings(BaseSettings):
     llm_max_retries: int = 2
     llm_max_output_tokens: int = 8192
 
-    chat_max_model_calls: int = 30
-    chat_max_tool_calls: int = 40
+    chat_max_model_calls: int = 45
+    chat_max_tool_calls: int = 60
     chat_deadline_seconds: int = 180
-    scan_max_model_calls: int = 60
-    scan_max_tool_calls: int = 80
+    scan_max_model_calls: int = 90
+    scan_max_tool_calls: int = 120
     scan_deadline_seconds: int = 600
-    subagent_max_model_calls: int = 8
-    subagent_max_tool_calls: int = 16
+    subagent_max_model_calls: int = 12
+    subagent_max_tool_calls: int = 24
     subagent_deadline_seconds: int = 90
     # An investigator's final call starts this long before its deadline: longer than the slowest investigator call
     # seen (23.7 s, live scan 2026-10-24), so the call that returns the result finishes in time.

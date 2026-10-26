@@ -35,6 +35,20 @@ const FOOTER = "London Office Monitor · proof of concept";
 const APP_SHOT = { file: "docs/screenshots/chat-answer.png", crop: { left: 0, top: 0, width: 2780, height: 1730 } };
 const SHOT_WIDTH_PX = 1600;
 
+// The tour on the last slide: three screens of the web app, captured on 26 Oct 2026 and cropped (pixel boxes in the
+// 2880 x 1800 originals) to the same 4:3 shape so the panels line up. Each matches a use on the first slide.
+const TOUR = [
+  { file: "docs/screenshots/chat-chart.png", crop: { left: 745, top: 205, width: 2025, height: 1519 },
+    icon: fa.FaComments, head: "Chat", text: "Ask anything: every broker's figure, a chart and the sources",
+    alt: "Chat: City Core prime rent by broker on a chart, with its sources" },
+  { file: "docs/screenshots/weekly-brief.png", crop: { left: 862, top: 23, width: 1880, height: 1410 },
+    icon: fa.FaNewspaper, head: "Weekly brief", text: "Read a draft of what changed and what it means for us",
+    alt: "The weekly brief: what changed and the news themes, each linked to its source" },
+  { file: "docs/screenshots/team-list.png", crop: { left: 749, top: 152, width: 1987, height: 1490 },
+    icon: fa.FaBinoculars, head: "Opportunities", text: "Discover leads; approved ones are shared with the team",
+    alt: "The Opportunities page: an approved opportunity card, marked as a demo example" },
+];
+
 // Times measured with the default models (GLM-5.3 answers, DeepSeek V4.1 Flash investigates), each up to the moment
 // the result was ready. Answers: 16 runs in evals/results/20261024T114708Z, 20261024T115443Z, 20261024T115620Z and
 // 20261025T143050Z, median 13 s. Brief: 31 s and 76 s in the same files. Scan: 56 s, 78 s and 104 s in
@@ -186,8 +200,8 @@ async function main() {
              "figure in each, and checks how each broker defines it. The Monitor does it in about 15 seconds and links " +
              "every figure to its source. The weekly brief takes about a minute to draft, and the opportunity scan " +
              "about two. Each costs a few cents of AI usage. These times come from our test runs on 24 and 25 October. " +
-             "We have not yet measured how long the same work takes the team by hand; that is one of the things we " +
-             "ask the team for on the last slide.");
+             "We have not yet measured how long the same work takes the team by hand, so that comparison is still to " +
+             "come.");
 
   // ---------- 3. Long-term data management ----------
   s = pres.addSlide({ masterName: "LIGHT", sectionTitle: "How it helps" });
@@ -307,8 +321,8 @@ async function main() {
              "against an illustrative mandate, since Nan Fung's real criteria are not public.");
 
   // ---------- 5. Why not just use ChatGPT ----------
-  pres.addSection({ title: "Trust and working together" });
-  s = pres.addSlide({ masterName: "LIGHT", sectionTitle: "Trust and working together" });
+  pres.addSection({ title: "Trust and the app" });
+  s = pres.addSlide({ masterName: "LIGHT", sectionTitle: "Trust and the app" });
   s.addText("BUILT TO BE TRUSTED", { placeholder: "kicker", charSpacing: 1 });
   s.addText("Why not just use ChatGPT?", { placeholder: "title" });
   const cols = [{ x: 0.5, w: 2.3 }, { x: 2.9, w: 2.7 }, { x: 5.7, w: 3.8 }];
@@ -356,53 +370,28 @@ async function main() {
              "we control, so we can leave out any whose terms forbid AI use, such as Knight Frank, and broker reports " +
              "are never fed to the AI.");
 
-  // ---------- 6. What we need from the business team (dark) ----------
-  s = pres.addSlide({ masterName: "DARK", sectionTitle: "Trust and working together" });
-  s.addText("WORKING TOGETHER", { placeholder: "kicker", charSpacing: 1 });
-  s.addText("What we need from the business team", { placeholder: "title" });
-  s.addText("An AI tool is only as good as the data and know-how behind it.",
-            box({ x: 0.5, y: 1.38, w: 9, h: 0.32, fontSize: 15, italic: true, color: C.background2,
-                  objectName: "Why it matters" }));
-  // Each ask closes a gap in the proof of concept: an illustrative mandate, mock internal records, broker figures
-  // that need licence sign-off, short trends, and no measure of how long the work takes by hand.
-  const needs = [
-    { icon: fa.FaDatabase, head: "Data readiness",
-      items: ["Real mandate, assets and past decisions", "Licences for broker reports we receive",
-              "Past figures from your spreadsheets"] },
-    { icon: fa.FaLightbulb, head: "Your know-how",
-      items: ["How each task is done today", "Which brokers and measures you trust",
-              "What a good brief or lead looks like"] },
-    { icon: fa.FaBalanceScale, head: "How we'll judge it",
-      items: ["Real questions, with the right answers", "Leads you would and wouldn't pursue",
-              "How long tasks take by hand today"] },
-    { icon: fa.FaHandshake, head: "Time and sign-off",
-      items: ["Analysts to try it and give feedback", "Compliance sign-off on AI and data use",
-              "Secure hosting with login"] },
-  ];
-  for (let i = 0; i < needs.length; i++) {
-    const x = 0.5 + (i % 2) * 4.6, y = 1.85 + Math.floor(i / 2) * 1.6, need = needs[i];
-    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w: 4.4, h: 1.45, rectRadius: 0.08,
-                                                fill: { color: C.background1, transparency: 88 },
-                                                line: { color: C.background1, transparency: 88 },
-                                                objectName: need.head + " card" });
-    s.addImage({ data: await icon(need.icon, HEX.accent4), x: x + 0.22, y: y + 0.17, w: 0.32, h: 0.32,
-                 altText: need.head + " icon" });
-    s.addText(need.head, box({ x: x + 0.68, y: y + 0.15, w: 3.5, h: 0.36, fontSize: 17, bold: true,
+  // ---------- 6. A quick tour of the app (dark) ----------
+  s = pres.addSlide({ masterName: "DARK", sectionTitle: "Trust and the app" });
+  s.addText("IN THE APP", { placeholder: "kicker", charSpacing: 1 });
+  s.addText("A quick tour of the app", { placeholder: "title" });
+  for (let i = 0; i < TOUR.length; i++) {
+    const stop = TOUR[i], tourShot = await screenshot(stop);
+    const x = 0.5 + i * 3.08, y = 1.55, w = 2.84, h = w / tourShot.aspect;
+    s.addShape(pres.shapes.RECTANGLE, { x, y, w, h, fill: { color: C.background1 }, line: { color: C.background1 },
+                                        shadow: softShadow(), objectName: stop.head + " screenshot frame" });
+    s.addImage({ data: tourShot.data, x, y, w, h, altText: stop.alt });
+    s.addImage({ data: await icon(stop.icon, HEX.accent4), x, y: y + h + 0.22, w: 0.3, h: 0.3,
+                 altText: stop.head + " icon" });
+    s.addText(stop.head, box({ x: x + 0.42, y: y + h + 0.18, w: w - 0.42, h: 0.38, fontSize: 17, bold: true,
                                color: C.background1, valign: "middle" }));
-    s.addText(need.items.map((t, j) => ({ text: t, options: { bullet: { indent: 14 }, breakLine: j < need.items.length - 1 } })),
-              box({ x: x + 0.22, y: y + 0.6, w: 4.05, h: 0.8, fontSize: 14, color: C.background2, paraSpaceAfter: 2 }));
+    s.addText(stop.text, box({ x, y: y + h + 0.62, w, h: 0.55, fontSize: 14, color: C.background2 }));
   }
-  s.addNotes("For this to work beyond a demo, we need four things from the business team. First, data readiness: our " +
-             "real mandate, asset details and past decisions in place of the illustrative and mock examples; licences " +
-             "for the broker reports the team already receives; and the past figures in the team's spreadsheets, so " +
-             "trends have history. Second, your know-how: how each task is done today, which brokers and measures " +
-             "you trust when they disagree, and what a good brief or a good lead looks like. That becomes the tool's " +
-             "playbooks. Third, ways to judge it: real questions with " +
-             "the right answers, leads you would and wouldn't pursue, and how long the work takes by hand today, so we " +
-             "can measure quality and time saved before anyone relies on it. Fourth, time and sign-off: a few analysts " +
-             "to use it and give feedback, compliance sign-off on how our data is used with AI models, and secure " +
-             "hosting with login. Internal documents need an access and data-residency review first, because the " +
-             "passages used in an answer are sent to the AI model provider.");
+  s.addNotes("To finish, a quick look at the app itself. In Chat, you ask a question in plain words; here, how City " +
+             "prime rent has moved, and every broker's figure comes back on a chart with a link to each source. The " +
+             "weekly brief is one click: it drafts what changed, the news themes, rates and what it means for our " +
+             "buildings. Opportunities is where the scan's leads arrive: the analyst approves or rejects each one under " +
+             "To review, and approved ones are shared with the team under Approved. Everything shown is the demo " +
+             "snapshot from 24 October 2026, and the card shown is marked as a demo example.");
 
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);

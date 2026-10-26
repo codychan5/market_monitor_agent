@@ -49,8 +49,13 @@ def app(seeded_docs, settings, monkeypatch):
     return at
 
 
+def section(at: AppTest, name: str):
+    """The sidebar button that opens a page."""
+    return at.sidebar.button(key=f"section-{name}")
+
+
 def page(at: AppTest, name: str) -> AppTest:
-    at.sidebar.radio[0].set_value(name).run()
+    section(at, name).click().run()
     return at
 
 
@@ -111,10 +116,21 @@ def test_a_demo_item_shows_a_badge_and_never_its_raw_label(app, seeded_docs):
 
 def test_the_menu_and_tabs_count_what_waits_and_what_is_approved(app):
     # The owner asked for the opportunities to be their own section, away from the chat, under plain names.
-    assert app.sidebar.radio[0].options == [":material/forum: Chat",
-                                            ":material/travel_explore: Opportunities :orange-badge[2]"]
+    assert [section(app, name).label for name in ("Chat", "Opportunities")] == ["Chat",
+                                                                                "Opportunities :orange-badge[2]"]
     at = page(app, "Opportunities")
     assert [t.label for t in at.tabs] == ["To review (2)", "Approved (1)"]
+
+
+def test_the_section_on_screen_is_the_one_filled_in(app):
+    def filled() -> list[str]:
+        return [name for name in ("Chat", "Opportunities") if section(app, name).proto.type == "primary"]
+
+    assert filled() == ["Chat"]
+    page(app, "Opportunities")
+    assert filled() == ["Opportunities"]
+    page(app, "Chat")
+    assert filled() == ["Chat"]
 
 
 def test_a_scan_runs_from_the_opportunities_page_in_its_own_conversation(app, monkeypatch):
@@ -177,10 +193,9 @@ def on_page(at: AppTest) -> str:
 
 
 def test_every_page_switch_takes_one_click(app):
-    # The page radio had no key and its index followed the page, so it got a new identity on every switch and
-    # every other click was lost (reported by the owner: "I need to click twice").
+    # The first page menu lost every other click (reported by the owner: "I need to click twice").
     for target in ("Opportunities", "Chat", "Opportunities", "Chat", "Opportunities"):
-        app.sidebar.radio[0].set_value(target).run()
+        page(app, target)
         assert on_page(app) == target and not app.exception
 
 

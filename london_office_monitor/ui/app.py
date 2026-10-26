@@ -152,6 +152,11 @@ def data_as_of(settings: Settings, conn) -> str:
         "Live mode · nothing fetched yet"
 
 
+def go_to(page: str) -> None:
+    """Section-button callback: show this page."""
+    st.session_state.page = page
+
+
 def queue_prompt(prompt: str, mode: str) -> None:
     """Button callback: run this prompt in the chat."""
     st.session_state.queued = (prompt, mode)
@@ -200,12 +205,14 @@ def sidebar(settings: Settings, conn, to_review: int) -> None:
     with st.sidebar:
         st.subheader("London Office Monitor", anchor=False)
         st.caption(f":material/database: {data_as_of(settings, conn)}")
-        labels = {page: f"{PAGE_ICONS[page]} {page}" for page in PAGES}
-        if to_review:
-            labels["Opportunities"] += f" :orange-badge[{to_review}]"
-        # A fixed key is the radio's whole identity (Streamlit's key_as_main_identity), so the changing count in its
-        # labels never resets it; without one, every page switch rebuilt it and lost the next click.
-        st.radio("Page", PAGES, key="page", format_func=labels.get, label_visibility="collapsed")
+        # The pages are buttons, the one on screen filled in. A button keeps no value between runs, so the count in
+        # the Opportunities label can change freely. The radio before them sent back its choice as its label text: a
+        # decision changed the count, the browser's label no longer matched, and the next click landed on Chat and
+        # dropped that click's decision.
+        for page in PAGES:
+            badge = f" :orange-badge[{to_review}]" if page == "Opportunities" and to_review else ""
+            st.button(page + badge, key=f"section-{page}", icon=PAGE_ICONS[page], width="stretch",
+                      type="primary" if page == st.session_state.page else "tertiary", on_click=go_to, args=(page,))
         # What comes and goes sits in slots that every run fills or clears: a page keeps its run going while it
         # follows a request (see chat_page), and anything a run leaves out stays on screen until the run ends.
         running, chat_actions = st.empty(), st.empty()

@@ -1,0 +1,680 @@
+[
+ {
+  "model": "Qwen/Qwen3-Embedding-0.6B-Q",
+  "dim": 1024,
+  "licence": "Apache 2.0",
+  "error": null,
+  "corpus_seconds": 34.8,
+  "query_seconds": 1.7,
+  "questions": [
+   {
+    "topic": "r01_owner_in_administration",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/gazette/example-office-holdings"
+   },
+   {
+    "topic": "r01_owner_in_administration",
+    "language": "zh",
+    "rank": 9,
+    "top_url": "https://propertyindustryeye.com/agency-expands-block-management-operation-into-london/"
+   },
+   {
+    "topic": "r02_ai_lease_kings_cross",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/news/example-ai-labs-kings-cross"
+   },
+   {
+    "topic": "r02_ai_lease_kings_cross",
+    "language": "zh",
+    "rank": 2,
+    "top_url": "https://internal.invalid/leasing-note-kings-cross-2025"
+   },
+   {
+    "topic": "r03_grade_a_pipeline",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/news/refurbishments-dominate-starts"
+   },
+   {
+    "topic": "r03_grade_a_pipeline",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/news/refurbishments-dominate-starts"
+   },
+   {
+    "topic": "r04_missed_interest",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/news/example-tower-missed-payment"
+   },
+   {
+    "topic": "r04_missed_interest",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/news/example-tower-missed-payment"
+   },
+   {
+    "topic": "r05_why_we_declined",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/ic-note-example-house-2024"
+   },
+   {
+    "topic": "r05_why_we_declined",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/ic-note-example-house-2024"
+   },
+   {
+    "topic": "r06_ai_tenant_terms",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/leasing-note-kings-cross-2025"
+   },
+   {
+    "topic": "r06_ai_tenant_terms",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/leasing-note-kings-cross-2025"
+   },
+   {
+    "topic": "r07_epc_target",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/esg-policy"
+   },
+   {
+    "topic": "r07_epc_target",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/esg-policy"
+   },
+   {
+    "topic": "r08_refurbishment_lessons",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/debrief-example-court-2023"
+   },
+   {
+    "topic": "r08_refurbishment_lessons",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/debrief-example-court-2023"
+   },
+   {
+    "topic": "r09_insolvency_checks",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/screening-checklist"
+   },
+   {
+    "topic": "r09_insolvency_checks",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/screening-checklist"
+   },
+   {
+    "topic": "r10_spitalfields_loan",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/office/ing-dbs-provide-pound1b-loan-for-j-p-morgan-s-one-spitalfields-refurb"
+   },
+   {
+    "topic": "r10_spitalfields_loan",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/office/ing-dbs-provide-pound1b-loan-for-j-p-morgan-s-one-spitalfields-refurb"
+   },
+   {
+    "topic": "r11_rents_above_estimates",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/office/rents-beat-expectations-as-gpe-sees-strong-london-market-and-flex-space-boost"
+   },
+   {
+    "topic": "r11_rents_above_estimates",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/office/rents-beat-expectations-as-gpe-sees-strong-london-market-and-flex-space-boost"
+   },
+   {
+    "topic": "r12_us_law_firms",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/us-law-firms-outpace-london-rivals-in-race-for-larger-city-offices/"
+   },
+   {
+    "topic": "r12_us_law_firms",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/us-law-firms-outpace-london-rivals-in-race-for-larger-city-offices/"
+   },
+   {
+    "topic": "r13_business_rates",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/healeys-1bn-london-office-raid-would-be-attack-on-growth/"
+   },
+   {
+    "topic": "r13_business_rates",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/healeys-1bn-london-office-raid-would-be-attack-on-growth/"
+   },
+   {
+    "topic": "r14_towers_heritage",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ministers-back-city-in-tower-of-london-heritage-row/"
+   },
+   {
+    "topic": "r14_towers_heritage",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ministers-back-city-in-tower-of-london-heritage-row/"
+   },
+   {
+    "topic": "r15_battersea_refinancing",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/battersea-power-station-nears-completion-with-280m-loan/"
+   },
+   {
+    "topic": "r15_battersea_refinancing",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/battersea-power-station-nears-completion-with-280m-loan/"
+   },
+   {
+    "topic": "r16_bank_rate_hold",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ftse-100-live-stocks-to-fall-as-markets-brace-for-interest-rate-call/"
+   },
+   {
+    "topic": "r16_bank_rate_hold",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ftse-100-live-stocks-to-fall-as-markets-brace-for-interest-rate-call/"
+   },
+   {
+    "topic": "r17_family_loan_defaults",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.ft.com/content/7f93f4b4-beca-4566-ad60-900910d31320?syn-25a6b1a6=1"
+   },
+   {
+    "topic": "r17_family_loan_defaults",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.ft.com/content/7f93f4b4-beca-4566-ad60-900910d31320?syn-25a6b1a6=1"
+   },
+   {
+    "topic": "r18_letting_near_waterloo_bridge",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.propertyweek.com/news/helical-lets-three-floors-of-brettenham-house-to-fgs-global"
+   },
+   {
+    "topic": "r18_letting_near_waterloo_bridge",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.propertyweek.com/news/helical-lets-three-floors-of-brettenham-house-to-fgs-global"
+   }
+  ]
+ },
+ {
+  "model": "google/embeddinggemma-300m",
+  "dim": 768,
+  "licence": "Gemma terms of use",
+  "error": null,
+  "corpus_seconds": 10.3,
+  "query_seconds": 0.3,
+  "questions": [
+   {
+    "topic": "r01_owner_in_administration",
+    "language": "en",
+    "rank": 3,
+    "top_url": "https://internal.invalid/screening-checklist"
+   },
+   {
+    "topic": "r01_owner_in_administration",
+    "language": "zh",
+    "rank": 23,
+    "top_url": "https://internal.invalid/screening-checklist"
+   },
+   {
+    "topic": "r02_ai_lease_kings_cross",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/news/example-ai-labs-kings-cross"
+   },
+   {
+    "topic": "r02_ai_lease_kings_cross",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/news/example-ai-labs-kings-cross"
+   },
+   {
+    "topic": "r03_grade_a_pipeline",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/news/refurbishments-dominate-starts"
+   },
+   {
+    "topic": "r03_grade_a_pipeline",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/news/refurbishments-dominate-starts"
+   },
+   {
+    "topic": "r04_missed_interest",
+    "language": "en",
+    "rank": 3,
+    "top_url": "https://internal.invalid/screening-checklist"
+   },
+   {
+    "topic": "r04_missed_interest",
+    "language": "zh",
+    "rank": 4,
+    "top_url": "https://www.ft.com/content/7f93f4b4-beca-4566-ad60-900910d31320?syn-25a6b1a6=1"
+   },
+   {
+    "topic": "r05_why_we_declined",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/ic-note-example-house-2024"
+   },
+   {
+    "topic": "r05_why_we_declined",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/ic-note-example-house-2024"
+   },
+   {
+    "topic": "r06_ai_tenant_terms",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/leasing-note-kings-cross-2025"
+   },
+   {
+    "topic": "r06_ai_tenant_terms",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/leasing-note-kings-cross-2025"
+   },
+   {
+    "topic": "r07_epc_target",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/esg-policy"
+   },
+   {
+    "topic": "r07_epc_target",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/esg-policy"
+   },
+   {
+    "topic": "r08_refurbishment_lessons",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/debrief-example-court-2023"
+   },
+   {
+    "topic": "r08_refurbishment_lessons",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/debrief-example-court-2023"
+   },
+   {
+    "topic": "r09_insolvency_checks",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/screening-checklist"
+   },
+   {
+    "topic": "r09_insolvency_checks",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/screening-checklist"
+   },
+   {
+    "topic": "r10_spitalfields_loan",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/office/ing-dbs-provide-pound1b-loan-for-j-p-morgan-s-one-spitalfields-refurb"
+   },
+   {
+    "topic": "r10_spitalfields_loan",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/office/ing-dbs-provide-pound1b-loan-for-j-p-morgan-s-one-spitalfields-refurb"
+   },
+   {
+    "topic": "r11_rents_above_estimates",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/office/rents-beat-expectations-as-gpe-sees-strong-london-market-and-flex-space-boost"
+   },
+   {
+    "topic": "r11_rents_above_estimates",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/office/rents-beat-expectations-as-gpe-sees-strong-london-market-and-flex-space-boost"
+   },
+   {
+    "topic": "r12_us_law_firms",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/us-law-firms-outpace-london-rivals-in-race-for-larger-city-offices/"
+   },
+   {
+    "topic": "r12_us_law_firms",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/us-law-firms-outpace-london-rivals-in-race-for-larger-city-offices/"
+   },
+   {
+    "topic": "r13_business_rates",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/healeys-1bn-london-office-raid-would-be-attack-on-growth/"
+   },
+   {
+    "topic": "r13_business_rates",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/city-of-london-urged-against-business-rates-hikes-to-cover-70m-shortfall/"
+   },
+   {
+    "topic": "r14_towers_heritage",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ministers-back-city-in-tower-of-london-heritage-row/"
+   },
+   {
+    "topic": "r14_towers_heritage",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ministers-back-city-in-tower-of-london-heritage-row/"
+   },
+   {
+    "topic": "r15_battersea_refinancing",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/capital-markets/battersea-power-station-lands-280m-refinancing-final-phase-megaproject"
+   },
+   {
+    "topic": "r15_battersea_refinancing",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/capital-markets/battersea-power-station-lands-280m-refinancing-final-phase-megaproject"
+   },
+   {
+    "topic": "r16_bank_rate_hold",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ftse-100-live-stocks-to-fall-as-markets-brace-for-interest-rate-call/"
+   },
+   {
+    "topic": "r16_bank_rate_hold",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ftse-100-live-stocks-to-fall-as-markets-brace-for-interest-rate-call/"
+   },
+   {
+    "topic": "r17_family_loan_defaults",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.ft.com/content/7f93f4b4-beca-4566-ad60-900910d31320?syn-25a6b1a6=1"
+   },
+   {
+    "topic": "r17_family_loan_defaults",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.ft.com/content/7f93f4b4-beca-4566-ad60-900910d31320?syn-25a6b1a6=1"
+   },
+   {
+    "topic": "r18_letting_near_waterloo_bridge",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.propertyweek.com/news/helical-lets-three-floors-of-brettenham-house-to-fgs-global"
+   },
+   {
+    "topic": "r18_letting_near_waterloo_bridge",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.propertyweek.com/news/helical-lets-three-floors-of-brettenham-house-to-fgs-global"
+   }
+  ]
+ },
+ {
+  "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "dim": 384,
+  "licence": "Apache 2.0",
+  "error": null,
+  "corpus_seconds": 7.2,
+  "query_seconds": 0.1,
+  "questions": [
+   {
+    "topic": "r01_owner_in_administration",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/gazette/example-office-holdings"
+   },
+   {
+    "topic": "r01_owner_in_administration",
+    "language": "zh",
+    "rank": 6,
+    "top_url": "https://www.ft.com/content/6a940d99-579a-481c-953e-a61cc23486e5?syn-25a6b1a6=1"
+   },
+   {
+    "topic": "r02_ai_lease_kings_cross",
+    "language": "en",
+    "rank": 2,
+    "top_url": "https://internal.invalid/leasing-note-kings-cross-2025"
+   },
+   {
+    "topic": "r02_ai_lease_kings_cross",
+    "language": "zh",
+    "rank": 2,
+    "top_url": "https://internal.invalid/leasing-note-kings-cross-2025"
+   },
+   {
+    "topic": "r03_grade_a_pipeline",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/news/refurbishments-dominate-starts"
+   },
+   {
+    "topic": "r03_grade_a_pipeline",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://synthetic.invalid/news/refurbishments-dominate-starts"
+   },
+   {
+    "topic": "r04_missed_interest",
+    "language": "en",
+    "rank": 2,
+    "top_url": "https://propertyindustryeye.com/more-landlords-freeze-rents-as-tenant-affordability-concerns-grow/"
+   },
+   {
+    "topic": "r04_missed_interest",
+    "language": "zh",
+    "rank": 4,
+    "top_url": "https://www.ft.com/content/6a940d99-579a-481c-953e-a61cc23486e5?syn-25a6b1a6=1"
+   },
+   {
+    "topic": "r05_why_we_declined",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/ic-note-example-house-2024"
+   },
+   {
+    "topic": "r05_why_we_declined",
+    "language": "zh",
+    "rank": 2,
+    "top_url": "https://www.propertyweek.com/news/financial-conduct-authority-to-take-no-action-against-home-reit"
+   },
+   {
+    "topic": "r06_ai_tenant_terms",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/leasing-note-kings-cross-2025"
+   },
+   {
+    "topic": "r06_ai_tenant_terms",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/leasing-note-kings-cross-2025"
+   },
+   {
+    "topic": "r07_epc_target",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/esg-policy"
+   },
+   {
+    "topic": "r07_epc_target",
+    "language": "zh",
+    "rank": 2,
+    "top_url": "https://synthetic.invalid/news/refurbishments-dominate-starts"
+   },
+   {
+    "topic": "r08_refurbishment_lessons",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/debrief-example-court-2023"
+   },
+   {
+    "topic": "r08_refurbishment_lessons",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://internal.invalid/debrief-example-court-2023"
+   },
+   {
+    "topic": "r09_insolvency_checks",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://internal.invalid/screening-checklist"
+   },
+   {
+    "topic": "r09_insolvency_checks",
+    "language": "zh",
+    "rank": 2,
+    "top_url": "https://www.ft.com/content/6a940d99-579a-481c-953e-a61cc23486e5?syn-25a6b1a6=1"
+   },
+   {
+    "topic": "r10_spitalfields_loan",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/office/ing-dbs-provide-pound1b-loan-for-j-p-morgan-s-one-spitalfields-refurb"
+   },
+   {
+    "topic": "r10_spitalfields_loan",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.bisnow.com/news/london/office/ing-dbs-provide-pound1b-loan-for-j-p-morgan-s-one-spitalfields-refurb"
+   },
+   {
+    "topic": "r11_rents_above_estimates",
+    "language": "en",
+    "rank": 11,
+    "top_url": "https://propertyindustryeye.com/renters-rights-act-risks-creating-two-tier-rental-market-goodlord-warns/"
+   },
+   {
+    "topic": "r11_rents_above_estimates",
+    "language": "zh",
+    "rank": 12,
+    "top_url": "https://propertyindustryeye.com/renters-rights-act-risks-creating-two-tier-rental-market-goodlord-warns/"
+   },
+   {
+    "topic": "r12_us_law_firms",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/us-law-firms-outpace-london-rivals-in-race-for-larger-city-offices/"
+   },
+   {
+    "topic": "r12_us_law_firms",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/us-law-firms-outpace-london-rivals-in-race-for-larger-city-offices/"
+   },
+   {
+    "topic": "r13_business_rates",
+    "language": "en",
+    "rank": 3,
+    "top_url": "https://www.cityam.com/us-law-firms-outpace-london-rivals-in-race-for-larger-city-offices/"
+   },
+   {
+    "topic": "r13_business_rates",
+    "language": "zh",
+    "rank": 3,
+    "top_url": "https://www.cityam.com/london-house-price-slowdown-worsens-as-luxury-areas-lose-value/"
+   },
+   {
+    "topic": "r14_towers_heritage",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ministers-back-city-in-tower-of-london-heritage-row/"
+   },
+   {
+    "topic": "r14_towers_heritage",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ministers-back-city-in-tower-of-london-heritage-row/"
+   },
+   {
+    "topic": "r15_battersea_refinancing",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/battersea-power-station-nears-completion-with-280m-loan/"
+   },
+   {
+    "topic": "r15_battersea_refinancing",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/battersea-power-station-nears-completion-with-280m-loan/"
+   },
+   {
+    "topic": "r16_bank_rate_hold",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ftse-100-live-stocks-to-fall-as-markets-brace-for-interest-rate-call/"
+   },
+   {
+    "topic": "r16_bank_rate_hold",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.cityam.com/ftse-100-live-stocks-to-fall-as-markets-brace-for-interest-rate-call/"
+   },
+   {
+    "topic": "r17_family_loan_defaults",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.ft.com/content/7f93f4b4-beca-4566-ad60-900910d31320?syn-25a6b1a6=1"
+   },
+   {
+    "topic": "r17_family_loan_defaults",
+    "language": "zh",
+    "rank": 1,
+    "top_url": "https://www.ft.com/content/7f93f4b4-beca-4566-ad60-900910d31320?syn-25a6b1a6=1"
+   },
+   {
+    "topic": "r18_letting_near_waterloo_bridge",
+    "language": "en",
+    "rank": 1,
+    "top_url": "https://www.propertyweek.com/news/helical-lets-three-floors-of-brettenham-house-to-fgs-global"
+   },
+   {
+    "topic": "r18_letting_near_waterloo_bridge",
+    "language": "zh",
+    "rank": 9,
+    "top_url": "https://www.propertyweek.com/news/chiswick-park-secures-72500-sq-ft-of-office-lettings"
+   }
+  ]
+ }
+]

@@ -1,0 +1,126 @@
+broker,metric,submarket,broker_label,period,value,unit,measure_note,source_key,checked_at,check_method,locator
+BNP Paribas,investment_volume,Central London,Central London,2026Q2,1.8,GBP bn,quarterly investment volume,bnp-clmu-q2-2026,2026-10-24,automatic,p. 2
+BNP Paribas,prime_yield,West End,West End,2026Q2,4.00,%,prime yield,bnp-clmu-q2-2026,2026-10-24,automatic,p. 2
+BNP Paribas,prime_yield,City Core,City,2026Q2,5.25,%,prime yield,bnp-clmu-q2-2026,2026-10-24,automatic,p. 2
+BNP Paribas,take_up,Central London,Central London,2026Q2,3.0,m sq ft,"quarterly take-up, deals over 1,000 sq ft",bnp-clmu-q2-2026,2026-10-24,automatic,p. 3
+BNP Paribas,vacancy_rate,Central London,Central London,2026Q2,8.4,%,overall vacancy,bnp-clmu-q2-2026,2026-10-24,automatic,p. 4
+BNP Paribas,availability,Central London,Central London,2026Q2,22.8,m sq ft,total availability at quarter end,bnp-clmu-q2-2026,2026-10-24,automatic,p. 4
+BNP Paribas,vacancy_rate,City Core,City Core,2026Q2,8.3,%,overall vacancy,bnp-clmu-q2-2026,2026-10-24,automatic,p. 4
+BNP Paribas,prime_rent,West End,West End,2026Q2,180.00,GBP psf pa,prime rent (premium rent reported separately),bnp-clmu-q2-2026,2026-10-24,automatic,p. 5
+BNP Paribas,take_up,West End,West End,2026Q2,1.0,m sq ft,"quarterly take-up, deals over 1,000 sq ft",bnp-clmu-q2-2026,2026-10-24,automatic,p. 5
+BNP Paribas,availability,West End,West End,2026Q2,6.2,m sq ft,available supply at quarter end,bnp-clmu-q2-2026,2026-10-24,automatic,p. 5
+BNP Paribas,vacancy_rate,West End,West End,2026Q2,6.7,%,overall vacancy,bnp-clmu-q2-2026,2026-10-24,automatic,p. 5
+BNP Paribas,prime_rent,City Core,City,2026Q2,95.00,GBP psf pa,prime rent (premium rent reported separately),bnp-clmu-q2-2026,2026-10-24,automatic,p. 6
+BNP Paribas,take_up,City Core,City,2026Q2,1.1,m sq ft,"quarterly take-up, deals over 1,000 sq ft",bnp-clmu-q2-2026,2026-10-24,automatic,p. 6
+BNP Paribas,availability,City Core,City,2026Q2,8.9,m sq ft,available supply at quarter end,bnp-clmu-q2-2026,2026-10-24,automatic,p. 6
+BNP Paribas,prime_rent,Midtown,Midtown,2026Q2,87.50,GBP psf pa,prime rent,bnp-clmu-q2-2026,2026-10-24,automatic,p. 7
+BNP Paribas,availability,Midtown,Midtown,2026Q2,1.6,m sq ft,available supply at quarter end,bnp-clmu-q2-2026,2026-10-24,automatic,p. 7
+BNP Paribas,vacancy_rate,Midtown,Midtown,2026Q2,7.0,%,overall vacancy,bnp-clmu-q2-2026,2026-10-24,automatic,p. 7
+BNP Paribas,prime_rent,Southbank,Southbank,2026Q2,87.50,GBP psf pa,prime rent,bnp-clmu-q2-2026,2026-10-24,automatic,p. 8
+BNP Paribas,availability,Southbank,Southbank,2026Q2,2.4,m sq ft,available supply at quarter end,bnp-clmu-q2-2026,2026-10-24,automatic,p. 8
+BNP Paribas,vacancy_rate,Southbank,Southbank,2026Q2,10.4,%,overall vacancy,bnp-clmu-q2-2026,2026-10-24,automatic,p. 8
+BNP Paribas,under_construction,Southbank,Southbank,2026Q2,1.6,m sq ft,office space under construction,bnp-clmu-q2-2026,2026-10-24,automatic,p. 8
+BNP Paribas,prime_rent,Canary Wharf/Docklands,Canary Wharf,2026Q2,58.50,GBP psf pa,"prime rent, Canary Wharf (wider Docklands quoted separately)",bnp-clmu-q2-2026,2026-10-24,automatic,p. 9
+BNP Paribas,availability,Canary Wharf/Docklands,Canary Wharf & Docklands,2026Q2,1.9,m sq ft,available supply at quarter end,bnp-clmu-q2-2026,2026-10-24,automatic,p. 9
+BNP Paribas,vacancy_rate,Canary Wharf/Docklands,Canary Wharf & Docklands,2026Q2,9.7,%,overall vacancy,bnp-clmu-q2-2026,2026-10-24,automatic,p. 9
+Savills,prime_rent,City Core,City,2026Q2,116.73,GBP psf pa,"average achieved prime rent, H1 2026",savills-clo-q2-2026,2026-10-24,automatic,p. 8
+Savills,prime_rent,West End,West End,2026Q2,175.10,GBP psf pa,"average achieved prime rent, H1 2026",savills-clo-q2-2026,2026-10-24,automatic,p. 8
+Savills,grade_a_rent,City Core,City,2026Q2,76.21,GBP psf pa,"average Grade A rent, H1 2026",savills-clo-q2-2026,2026-10-24,automatic,p. 8
+Savills,grade_a_rent,West End,West End,2026Q2,106.17,GBP psf pa,"average Grade A rent, H1 2026",savills-clo-q2-2026,2026-10-24,automatic,p. 8
+Savills,take_up,Central London,Central London,2026Q2,2.4,m sq ft,quarterly take-up,savills-clo-q2-2026,2026-10-24,automatic,p. 3
+Savills,under_offer,Central London,Central London,2026Q2,3.1,m sq ft,space under offer at end of H1,savills-clo-q2-2026,2026-10-24,automatic,p. 5
+Savills,availability,Central London,Central London,2026Q2,18.7,m sq ft,total supply at quarter end,savills-clo-q2-2026,2026-10-24,automatic,p. 6
+Savills,vacancy_rate,Central London,Central London,2026Q2,7.2,%,overall vacancy,savills-clo-q2-2026,2026-10-24,automatic,p. 6
+Savills,vacancy_rate,West End,West End,2026Q2,7.5,%,overall vacancy,savills-clo-q2-2026,2026-10-24,automatic,p. 6
+Savills,vacancy_rate,City Core,City Core,2026Q2,5.9,%,overall vacancy,savills-clo-q2-2026,2026-10-24,automatic,p. 6
+Savills,vacancy_rate,City Fringe,City Fringe,2026Q2,8.0,%,overall vacancy,savills-clo-q2-2026,2026-10-24,automatic,p. 6
+Savills,vacancy_rate,West End Core,West End Core (Mayfair/St James's),2026Q2,4.4,%,overall vacancy,savills-clo-q2-2026,2026-10-24,automatic,p. 6
+Savills,under_construction,Central London,Central London,2026Q2,16.1,m sq ft,space under construction at end of H1,savills-clo-q2-2026,2026-10-24,automatic,p. 7
+Savills,investment_volume,Central London,Central London,2026Q2,2.06,GBP bn,quarterly investment turnover,savills-clo-q2-2026,2026-10-24,automatic,p. 9
+Savills,prime_yield,West End,West End,2026Q2,3.75,%,prime yield,savills-clo-q2-2026,2026-10-24,automatic,p. 9
+Savills,prime_yield,City Core,City,2026Q2,5.25,%,prime yield,savills-clo-q2-2026,2026-10-24,automatic,p. 9
+Savills,grade_a_rent,City Core,City,2026-08,86.26,GBP psf pa,"average Grade A rent, August deals",savills-clomw-2026-08,2026-10-24,automatic,
+Savills,grade_a_rent,West End,West End,2026-08,134.17,GBP psf pa,"average Grade A rent, August deals",savills-clomw-2026-08,2026-10-24,automatic,
+Savills,under_offer,Central London,Central London,2026-08,2.51,m sq ft,space under offer at month end,savills-clomw-2026-08,2026-10-24,automatic,
+Savills,availability,Central London,Central London,2026-08,18.16,m sq ft,total supply at month end,savills-clomw-2026-08,2026-10-24,automatic,
+Savills,vacancy_rate,Central London,Central London,2026-08,7.0,%,overall vacancy,savills-clomw-2026-08,2026-10-24,automatic,
+Savills,under_construction,Central London,Central London,2026Q3,15.3,m sq ft,"space under construction, end of Q3",savills-mim-uk-commercial-2026-10,2026-10-24,automatic,
+Savills,pre_let_share,Central London,Central London,2026Q3,25,%,share of space under construction already let,savills-mim-uk-commercial-2026-10,2026-10-24,automatic,
+Savills,prime_yield,City Core,City,2026-07,5.25,%,"prime yield, end of July",savills-ciw-2026-07,2026-10-24,automatic,
+Savills,prime_yield,West End,West End,2026-07,3.75,%,"prime yield, end of July",savills-ciw-2026-07,2026-10-24,automatic,
+JLL,take_up,Central London,Central London,2026Q3,3.1,m sq ft,quarterly take-up,jll-md-q3-2026-web,2026-10-24,automatic,
+JLL,vacancy_rate,Central London,Central London,2026Q3,8.3,%,overall vacancy,jll-md-q3-2026,2026-10-24,manual,p. 1
+JLL,availability,Central London,Central London,2026Q3,21.0,m sq ft,total supply at quarter end,jll-md-q3-2026,2026-10-24,manual,p. 1
+JLL,under_offer,Central London,Central London,2026Q3,4.8,m sq ft,space under offer at quarter end,jll-md-q3-2026,2026-10-24,manual,p. 1
+JLL,under_construction,Central London,Central London,2026Q3,12.8,m sq ft,total space under construction,jll-md-q3-2026,2026-10-24,manual,p. 1
+JLL,pre_let_share,Central London,Central London,2026Q3,29,%,share of space under construction pre-leased,jll-md-q3-2026,2026-10-24,manual,p. 1
+JLL,prime_rent,West End,West End,2026Q3,195.00,GBP psf pa,prime rent,jll-md-q3-2026,2026-10-24,manual,p. 1
+JLL,prime_rent,City Core,City,2026Q3,100.00,GBP psf pa,prime rent,jll-md-q3-2026,2026-10-24,manual,p. 1
+JLL,prime_rent,Canary Wharf/Docklands,Canary Wharf,2026Q3,62.50,GBP psf pa,prime rent,jll-md-q3-2026,2026-10-24,manual,p. 1
+JLL,take_up,Central London,Central London,2026Q2,2.6,m sq ft,quarterly take-up,jll-md-q2-2026,2026-10-24,manual,p. 1
+JLL,vacancy_rate,Central London,Central London,2026Q2,8.6,%,overall vacancy,jll-md-q2-2026,2026-10-24,manual,p. 1
+JLL,availability,Central London,Central London,2026Q2,21.6,m sq ft,total supply at quarter end,jll-md-q2-2026,2026-10-24,manual,p. 1
+JLL,under_offer,Central London,Central London,2026Q2,4.9,m sq ft,space under offer at quarter end,jll-md-q2-2026,2026-10-24,manual,p. 1
+JLL,under_construction,Central London,Central London,2026Q2,14.4,m sq ft,total space under construction,jll-md-q2-2026,2026-10-24,manual,p. 1
+JLL,pre_let_share,Central London,Central London,2026Q2,35,%,share of space under construction pre-leased,jll-md-q2-2026,2026-10-24,manual,p. 1
+JLL,prime_rent,West End,West End,2026Q2,190.00,GBP psf pa,prime rent,jll-md-q2-2026,2026-10-24,manual,p. 1
+JLL,prime_rent,Canary Wharf/Docklands,East London,2026Q2,58.50,GBP psf pa,prime rent,jll-md-q2-2026,2026-10-24,manual,p. 1
+JLL,take_up,West End,West End,2026Q2,1.2,m sq ft,quarterly take-up,jll-md-q2-2026,2026-10-24,manual,p. 1
+JLL,prime_rent,City Core,City,2026Q2,95.00,GBP psf pa,prime rent; incentives 24 months on a 10-year term,jll-md-q2-2026,2026-10-24,manual,p. 2
+JLL,take_up,City Core,City,2026Q2,1.1,m sq ft,quarterly take-up,jll-md-q2-2026,2026-10-24,manual,p. 2
+JLL,vacancy_rate,City Core,City,2026Q2,7.6,%,overall vacancy,jll-md-q2-2026,2026-10-24,manual,p. 2
+JLL,availability,City Core,City,2026Q2,9.4,m sq ft,total supply at quarter end,jll-md-q2-2026,2026-10-24,manual,p. 2
+JLL,under_offer,City Core,City,2026Q2,3.1,m sq ft,space under offer at quarter end,jll-md-q2-2026,2026-10-24,manual,p. 2
+JLL,pre_let_share,City Core,City,2026Q2,37,%,share of space under construction pre-let or under offer,jll-md-q2-2026,2026-10-24,manual,p. 2
+Cushman & Wakefield,take_up,Central London,Central London,2026Q2,2.46,m sq ft,quarterly take-up,cw-marketbeat-q2-2026-web,2026-10-24,automatic,
+Cushman & Wakefield,availability,Central London,Central London,2026Q2,26.41,m sq ft,total availability at quarter end,cw-marketbeat-q2-2026-web,2026-10-24,automatic,
+Cushman & Wakefield,under_construction,Central London,Central London,2026Q2,11.62,m sq ft,space under construction at quarter end,cw-marketbeat-q2-2026-web,2026-10-24,automatic,
+Cushman & Wakefield,pre_let_share,Central London,Central London,2026Q2,25,%,share of space under construction pre-let or under offer,cw-marketbeat-q2-2026-web,2026-10-24,automatic,
+Cushman & Wakefield,under_offer,Central London,Central London,2026Q2,4.44,m sq ft,space under offer at quarter end,cw-marketbeat-q2-2026-web,2026-10-24,automatic,
+Cushman & Wakefield,prime_yield,City Core,City (core),2026Q2,5.50,%,core prime yield,cw-marketbeat-q2-2026-web,2026-10-24,automatic,
+Cushman & Wakefield,prime_yield,West End Core,West End (core),2026Q2,3.75,%,core prime yield,cw-marketbeat-q2-2026-web,2026-10-24,automatic,
+Cushman & Wakefield,vacancy_rate,Central London,Central London,2026Q2,8.78,%,overall vacancy,cw-marketbeat-q2-2026,2026-10-24,manual,p. 3
+Cushman & Wakefield,investment_volume,Central London,Central London,2026Q2,2.06,GBP bn,quarterly investment volume,cw-marketbeat-q2-2026,2026-10-24,manual,p. 8
+Cushman & Wakefield,under_offer,West End,West End,2026Q2,1.07,m sq ft,space under offer at quarter end,cw-marketbeat-q2-2026,2026-10-24,manual,p. 4
+Cushman & Wakefield,availability,West End,West End,2026Q2,10.04,m sq ft,total availability at quarter end,cw-marketbeat-q2-2026,2026-10-24,manual,p. 4
+Cushman & Wakefield,vacancy_rate,West End,West End,2026Q2,8.10,%,overall vacancy,cw-marketbeat-q2-2026,2026-10-24,manual,p. 4
+Cushman & Wakefield,under_construction,West End,West End,2026Q2,4.79,m sq ft,"space under construction, completing by 2029",cw-marketbeat-q2-2026,2026-10-24,manual,p. 4
+Cushman & Wakefield,pre_let_share,West End,West End,2026Q2,25,%,share of space under construction pre-let or under offer,cw-marketbeat-q2-2026,2026-10-24,manual,p. 4
+Cushman & Wakefield,prime_rent,West End,West End,2026Q2,175,GBP psf pa,prime headline rent,cw-marketbeat-q2-2026,2026-10-24,manual,p. 4
+Cushman & Wakefield,under_offer,City Core,Wider City,2026Q2,2.86,m sq ft,space under offer at quarter end,cw-marketbeat-q2-2026,2026-10-24,manual,p. 5
+Cushman & Wakefield,availability,City Core,Wider City,2026Q2,13.30,m sq ft,total availability at quarter end,cw-marketbeat-q2-2026,2026-10-24,manual,p. 5
+Cushman & Wakefield,vacancy_rate,City Core,Wider City,2026Q2,8.70,%,overall vacancy,cw-marketbeat-q2-2026,2026-10-24,manual,p. 5
+Cushman & Wakefield,availability,Canary Wharf/Docklands,East London,2026Q2,3.07,m sq ft,total availability at quarter end,cw-marketbeat-q2-2026,2026-10-24,manual,p. 6
+Cushman & Wakefield,vacancy_rate,Canary Wharf/Docklands,East London,2026Q2,12.74,%,overall vacancy,cw-marketbeat-q2-2026,2026-10-24,manual,p. 6
+Cushman & Wakefield,prime_rent,City Core,City Core,2026Q2,95,GBP psf pa,prime headline rent (rental map),cw-marketbeat-q2-2026,2026-10-24,manual,p. 7
+Cushman & Wakefield,prime_rent,West End Core,Mayfair & St James's,2026Q2,175,GBP psf pa,prime headline rent (rental map),cw-marketbeat-q2-2026,2026-10-24,manual,p. 7
+Cushman & Wakefield,prime_rent,Midtown,Midtown,2026Q2,90,GBP psf pa,prime headline rent (rental map),cw-marketbeat-q2-2026,2026-10-24,manual,p. 7
+Cushman & Wakefield,prime_rent,King's Cross/Euston,King's Cross,2026Q2,110,GBP psf pa,prime headline rent (rental map),cw-marketbeat-q2-2026,2026-10-24,manual,p. 7
+Cushman & Wakefield,prime_rent,Southbank,Southbank,2026Q2,87.50,GBP psf pa,prime headline rent (rental map),cw-marketbeat-q2-2026,2026-10-24,manual,p. 7
+Cushman & Wakefield,prime_rent,Canary Wharf/Docklands,Canary Wharf,2026Q2,62.50,GBP psf pa,prime headline rent (rental map),cw-marketbeat-q2-2026,2026-10-24,manual,p. 7
+Cushman & Wakefield,prime_rent,City Fringe,Clerkenwell,2026Q2,92.50,GBP psf pa,prime headline rent (rental map),cw-marketbeat-q2-2026,2026-10-24,manual,p. 7
+Avison Young,take_up,Central London,Central London,2026Q2,2.6,m sq ft,quarterly take-up,ay-occupier-q2-2026,2026-10-24,automatic,
+Avison Young,vacancy_rate,Central London,Central London,2026Q2,6.3,%,overall vacancy,ay-occupier-q2-2026,2026-10-24,automatic,
+Avison Young,vacancy_rate,Midtown,Midtown,2026Q2,4.3,%,overall vacancy,ay-occupier-q2-2026,2026-10-24,automatic,
+Avison Young,vacancy_rate,City Core,City,2026Q2,4.7,%,overall vacancy,ay-city-q2-2026,2026-10-24,automatic,
+Avison Young,prime_rent,City Core,Northern City / Broadgate,2026Q2,97.50,GBP psf pa,"prime rent, quoted for Northern City/Broadgate",ay-city-q2-2026,2026-10-24,automatic,
+Avison Young,vacancy_rate,West End,West End,2026Q2,4.8,%,overall vacancy,ay-west-end-q2-2026,2026-10-24,automatic,
+Avison Young,prime_rent,West End Core,Mayfair,2026Q2,187.50,GBP psf pa,"prime rent, quoted for Mayfair",ay-west-end-q2-2026,2026-10-24,automatic,
+Avison Young,vacancy_rate,City Fringe,Tech Belt,2026Q2,9.0,%,overall vacancy,ay-tech-belt-q2-2026,2026-10-24,automatic,
+Avison Young,prime_rent,King's Cross/Euston,King's Cross/Farringdon,2026Q2,95.00,GBP psf pa,"prime rent, quoted for King's Cross/Farringdon",ay-tech-belt-q2-2026,2026-10-24,automatic,
+Avison Young,vacancy_rate,Canary Wharf/Docklands,East London,2026Q2,9.1,%,overall vacancy,ay-east-london-q2-2026,2026-10-24,automatic,
+Avison Young,prime_rent,Canary Wharf/Docklands,Canary Wharf,2026Q2,57.50,GBP psf pa,"prime rent, quoted for Canary Wharf",ay-east-london-q2-2026,2026-10-24,automatic,
+Avison Young,investment_volume,Central London,Central London,2026Q2,2.0,GBP bn,quarterly investment volume,ay-investment-q2-2026,2026-10-24,automatic,
+Avison Young,prime_yield,City Core,City,2026Q2,5.25,%,prime yield,ay-investment-q2-2026,2026-10-24,automatic,
+CBRE,take_up,Central London,Central London,2026Q2,2.7,m sq ft,quarterly take-up,benews-cbre-q2-2026,2026-10-24,automatic,
+CBRE,availability,Central London,Central London,2026Q2,19.4,m sq ft,availability incl. space ready within 12 months,cbre-clof-q2-2026,2026-10-24,manual,p. 1
+CBRE,under_offer,Central London,Central London,2026Q2,4.1,m sq ft,space under offer at quarter end,cbre-clof-q2-2026,2026-10-24,manual,p. 1
+CBRE,vacancy_rate,Central London,Central London,2026Q2,6.5,%,overall vacancy,cbre-clof-q2-2026,2026-10-24,manual,p. 1
+CBRE,investment_volume,Central London,Central London,2026Q2,1.7,GBP bn,quarterly investment volume,cbre-clof-q2-2026,2026-10-24,manual,p. 1
+CBRE,under_construction,Central London,Central London,2026Q2,13.2,m sq ft,space under construction at quarter end,cbre-clof-q2-2026,2026-10-24,manual,p. 1
+CBRE,pre_let_share,Central London,Central London,2026Q2,33,%,share of space under construction let or under offer,cbre-clof-q2-2026,2026-10-24,manual,p. 1
+CBRE,under_offer,City Core,City,2026Q2,1.5,m sq ft,space under offer at quarter end,cbre-clof-q2-2026,2026-10-24,manual,p. 2
+CBRE,under_offer,West End,West End,2026Q2,1.2,m sq ft,space under offer at quarter end,cbre-clof-q2-2026,2026-10-24,manual,p. 2
+CBRE,under_offer,Canary Wharf/Docklands,Docklands,2026Q2,0.8,m sq ft,space under offer at quarter end,cbre-clof-q2-2026,2026-10-24,manual,p. 2
+CBRE,availability,Central London,Central London,2026-08,20.0,m sq ft,total availability at month end,cbre-clof-2026-08,2026-10-24,manual,
+CBRE,vacancy_rate,Central London,Central London,2026-08,6.7,%,overall vacancy,cbre-clof-2026-08,2026-10-24,manual,

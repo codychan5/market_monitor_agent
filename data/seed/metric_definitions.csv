@@ -1,0 +1,11 @@
+broker,metric,definition,source_key
+BNP Paribas,take_up,"Take-up figures are based on all deals over 1,000 sq ft.",bnp-clmu-q2-2026
+BNP Paribas,prime_rent,"Prime rent is reported separately from a higher premium rent; premium rent refers to amenity rich assets, top floor with terrace (Q2 2026: City prime £95.00, premium £150.00 psf).",bnp-clmu-q2-2026
+Savills,prime_rent,Average prime rent is based on actual average achieved rents: derived from achieved rents rather than ERVs.,savills-clo-q2-2026
+JLL,prime_rent,The City prime rent (£95.00 psf in Q2 2026) is quoted with incentives of 24 months on an assumed 10-year term.,jll-md-q2-2026
+JLL,pre_let_share,Reported as 'U/C preleased'; the City page describes the same 37% as space under construction already pre-let or under offer.,jll-md-q2-2026
+Cushman & Wakefield,prime_rent,"Prime headline rents, shown by submarket on the MarketBeat rental map.",cw-marketbeat-q2-2026
+Cushman & Wakefield,pre_let_share,Share of space under construction that is pre-let or under offer.,cw-marketbeat-q2-2026-web
+Avison Young,prime_rent,Prime rents are headline rents: AY reports prime headline rental growth (% year on year).,ay-occupier-q2-2026
+CBRE,availability,"Availability comprises secondhand space, newly completed space and new early-marketed development space, which is not yet ready to occupy but expected to be available within 12 months.",cbre-clof-q2-2026
+CBRE,pre_let_share,Share of space under construction that is let or under offer.,cbre-clof-q2-2026

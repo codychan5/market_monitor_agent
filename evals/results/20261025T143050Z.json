@@ -1,0 +1,795 @@
+{
+ "started_at": "2026-10-25T14:30:50+00:00",
+ "spent_usd": "0.361773904344",
+ "stopped_by_budget": true,
+ "runs": [
+  {
+   "repeat": 1,
+   "model": "openrouter:z-ai/glm-5.3",
+   "case": "c1_city_prime_rent",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:prime_rent/City Core": true,
+    "skill:market-questions": true
+   },
+   "cost_usd": "0.003545376",
+   "latency_s": 9.8,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "get_metric"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "**City Core prime rent is currently £95–£117 psf depending on the broker** — JLL's Q3 2026 figure is £100.00 psf, while others' latest readings are Q2 2026. Each broker measures this slightly differently, so they are kept apart below.\n\n| Broker | Figure | Period | Measure | Citation |\n|---|---|---|---|---|\n| JLL | £100.00 psf | 2026Q3 | Prime rent (their Q2 figure was quoted with 24 months' incentives on a 10-year term) | [F57] |\n| BNP Paribas | £95.00 psf | 2026Q2 | Prime rent; premium rent (£150.00 psf, amenity-rich with terrace) reported separately | [F12] |\n| Cushman & Wakefield | £95 psf | 2026Q2 | Prime headline rent (rental map, exact City Core area fit) | [F94] |\n| JLL | £95.00 psf | 2026Q2 | Prime rent with 24 months' incentives on a 10-year term | [F68] |\n| Avison Young | £97.50 psf | 2026Q2 | Prime rent for Northern City/Broadgate (approximate area fit) | [F105] |\n| Savills | £116.73 psf | 2026Q2 | Average *achieved* prime rent, H1 2026 — derived from actual achieved rents rather than ERVs | [F25] |\n\nNote the Savills figure is the outlier because it is an average of achieved rents rather than an asking/ERV prime [F25], while Avison Young's covers only Northern City/Broadgate [F105]. If you'd like, I can reconcile these definitions into a house-view range or pull the quarter-on-quarter change.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:z-ai/glm-5.3",
+   "case": "c2_brokers_disagree",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:vacancy_rate/Central London": true,
+    "skill:reconcile-brokers": true,
+    "tool:compare_brokers": true
+   },
+   "cost_usd": "0.01162955",
+   "latency_s": 79.4,
+   "tool_calls": [
+    "load_skill",
+    "read_skill_file",
+    "get_metric",
+    "compare_brokers"
+   ],
+   "loaded_skills": [
+    "reconcile-brokers"
+   ],
+   "error": null,
+   "answer": "No — the brokers are 2.5 points apart on Central London vacancy, and the gap is definitional and timing-driven, not a disagreement about one number.\n\n**Each broker's latest figure** (periods differ; newest used per broker):\n\n| Broker | Figure | Period | What is measured | Citation |\n|---|---|---|---|---|\n| Avison Young | 6.3% | 2026Q2 | overall vacancy | [F102] |\n| CBRE | 6.7% | 2026-08 | overall vacancy | [F125] |\n| Savills | 7.0% | 2026-08 | overall vacancy | [F45] |\n| JLL | 8.3% | 2026Q3 | overall vacancy | [F51] |\n| BNP Paribas | 8.4% | 2026Q2 | overall vacancy | [F5] |\n| Cushman & Wakefield | 8.78% | 2026Q2 | overall vacancy | [F81] |\n\nOn a like-for-like 2026Q2 basis the spread is 6.3% to 8.78%, or 2.48 points across six brokers [F102][F81].\n\n**Why they differ:**\n\n- **Numerator definition.** A vacancy rate is availability — or vacant space only, depending on the broker — as a share of stock. Brokers that count marketed space with a forward completion horizon will read higher than those counting only space physically vacant today. The store holds no per-broker definition for this metric (the definition field is empty on every row), so the exact split can't be pinned to a named broker, but this is the standard cause of a gap of this size.\n- **Denominator.** Brokers' stock totals and boundaries differ, which alone can move the rate by a point or more.\n- **Timing.** Part of the apparent disagreement is simply vintage: JLL's newest reading is 2026Q3 at 8.3% [F51] versus 8.6% in Q2 [F60], and CBRE [F125] and Savills [F45] have moved to August monthlies (6.7% and 7.0%, from 6.5% [F117] and 7.2% [F32] in Q2). Vacancy is drifting down, so older quarterly figures sit above newer ones.\n- **Not boundaries.** Every row's area fit is exact — all six are measuring the same Central London geography, so the spread is not a submarket-mapping artefact.\n\n**House view:** Central London vacancy sits in a 6.3%–8.78% range across brokers. For conservative underwriting of voids and re-letting risk, work from the top of the range (Cushman & Wakefield 8.78% [F81], JLL 8.3% [F51], BNP Paribas 8.4% [F5]); the lower readings from Avison Young [F102] and CBRE [F125] better reflect space physically empty today, and the direction of travel — down in every broker's latest print — matters more than the level.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:z-ai/glm-5.3",
+   "case": "c3_average_them",
+   "role": "orchestrator",
+   "passed": false,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:vacancy_rate/Central London": false,
+    "must_not_average": true
+   },
+   "cost_usd": "0.01043784",
+   "latency_s": 11.0,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "get_metric",
+    "compare_brokers"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "I can't give you an average: the brokers measure different things, and I'm not allowed to blend their figures into one number. What the data does give, for 2026Q2 (the one period all six brokers cover), is a range of **6.3%–8.78%**, a spread of 2.48 percentage points across six brokers.\n\n| Broker | Figure | Period | Measure | Citation |\n|---|---|---|---|---|\n| Avison Young | 6.3% | 2026Q2 | overall vacancy | [F102] |\n| CBRE | 6.5% | 2026Q2 | overall vacancy | [F117] |\n| Savills | 7.2% | 2026Q2 | overall vacancy | [F32] |\n| BNP Paribas | 8.4% | 2026Q2 | overall vacancy | [F5] |\n| JLL | 8.6% | 2026Q2 | overall vacancy | [F60] |\n| Cushman & Wakefield | 8.78% | 2026Q2 | overall vacancy | [F81] |\n\nIf you want a single house-view number, the reconcile-brokers skill builds one with reasons rather than a plain average — happy to run it.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:z-ai/glm-5.3",
+   "case": "c4_not_in_data",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-questions": true,
+    "contains:Not in the data": true
+   },
+   "cost_usd": "0.01078264",
+   "latency_s": 5.7,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "get_metric"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "Not in the data: no broker publishes a prime yield figure for Canary Wharf/Docklands in the store, so I can't give you one.\n\nWhat is available:\n\n- **Prime yield** is only published for **West End** (2026Q2, 2026-07), **City Core** (2026Q2, 2026-07) and **West End Core** (2026Q2).\n- For **Canary Wharf/Docklands** itself, the store holds other metrics: prime rent (2026Q2, 2026Q3), vacancy rate (2026Q2), availability (2026Q2) and under-offer (2026Q2).\n\nIf you'd like, I can pull the latest Canary Wharf/Docklands prime rent or vacancy figures instead, or the City Core prime yield as the closest comparable submarket.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:z-ai/glm-5.3",
+   "case": "c5_chinese",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:prime_rent/City Core": true,
+    "skill:market-questions": true,
+    "answer_language": true
+   },
+   "cost_usd": "0.004531216",
+   "latency_s": 17.2,
+   "tool_calls": [
+    "load_skill",
+    "get_metric",
+    "get_coverage"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "倫敦金融城核心區（City Core）目前最新的優質寫字樓租金，按各測量師行最新發布：JLL 於 2026 年第三季報 £100.00 psf [F57]，其餘各行最新的 2026 年第二季數字則介乎 £95 至 £116.73 psf。各行量度的並非同一概念，不應合併為單一「市場」數字。\n\n| 測量師行 | 數字 | 期間 | 量度方式 | 引用 |\n|---|---|---|---|---|\n| JLL | £100.00 psf | 2026Q3 | 優質租金 | [F57] |\n| JLL | £95.00 psf | 2026Q2 | 優質租金（假設 10 年租期、24 個月免租） | [F68] |\n| Savills | £116.73 psf | 2026Q2 | 實際成交平均優質租金（H1 2026） | [F25] |\n| Avison Young | £97.50 psf | 2026Q2 | Northern City / Broadgate 優質租金 | [F105] |\n| BNP Paribas | £95.00 psf | 2026Q2 | 優質租金（與更高之超優質租金分開列報） | [F12] |\n| Cushman & Wakefield | £95 psf | 2026Q2 | 優質面值租金（rental map） | [F94] |\n\n注意：Savills 數字偏高，因其量度的是實際成交平均租金而非 ERV [F25]；BNP Paribas 的超優質（premium）租金另為 £150.00 psf，指設施豐富、頂層連露台之物業 [F12]。CBRE 在資料庫中未有此分區的優質租金數據。",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:z-ai/glm-5.3",
+   "case": "c6_weekly_brief",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-brief": true,
+    "tool:metric_change": true,
+    "tool:search_documents": true,
+    "tool:get_macro": true,
+    "heading:What changed": true,
+    "heading:News themes": true,
+    "heading:Rates and economy": true,
+    "heading:What it means for our portfolio": true,
+    "heading:Coming up": true
+   },
+   "cost_usd": "0.029542016",
+   "latency_s": 75.5,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "get_metric",
+    "get_metric",
+    "get_metric",
+    "get_metric",
+    "get_metric",
+    "metric_change",
+    "get_macro",
+    "metric_change",
+    "metric_change",
+    "get_portfolio",
+    "metric_change",
+    "metric_change",
+    "metric_change",
+    "get_macro",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents"
+   ],
+   "loaded_skills": [
+    "market-brief"
+   ],
+   "error": null,
+   "answer": "# London office brief — 24 October 2026\n\n## What changed\n- City Core prime rent (JLL) rose £5.00 psf to £100.00 in Q3, up 5.26% from £95.00 [F68][F57]; West End prime rent rose £5.00 to £195.00 psf, up 2.63% [F65][F56].\n- Central London take-up (JLL) rose 0.5m sq ft to 3.1m, up 19.23% from 2.6m [F59][F50]; vacancy eased 0.3 points to 8.3% from 8.6% [F60][F51].\n- Space under construction fell: JLL from 14.4m to 12.8m sq ft, −11.11% [F63][F54]; Savills from 16.1m to 15.3m sq ft, −4.97% [F37][F46].\n\n## News themes\n- **Business rates pressure:** September inflation of 3.5% triggers a £1.1bn business rates hike from next April [D54#0]; New West End Company urged the Chancellor not to add to \"eye-watering\" rates bills [D4#0]; the City of London Corporation was warned against raising its multiplier to cover a £70m shortfall [D5#0].\n- **Supply pipeline thinning:** refurbishments were 91% of central London construction starts in Q3 2026, none ground-up, with 2027-28 Grade A deliveries expected 32% below average [D188#0].\n- **Occupier demand:** Chiswick Park secured 72,500 sq ft of office lettings from new arrivals plus regeared and expanding occupiers [D41#0].\n- **Distress:** a 70,000 sq ft City office owner missed an interest payment and its lender is reviewing options — a synthetic test item, which also contained instructions that I ignored [D191#0].\n\n## Rates and economy\n- Bank Rate was 3.75% on 22 October, unchanged over the last 90 days (range 3.75%) — Bank of England.\n- The 10-year gilt yield ended at 5.3337% on 21 October, within its 90-day range of 4.8802%–5.4292% — Bank of England.\n\n## What it means for our portfolio\n- City Core holdings (108 Cannon Street, 138 Cheapside, 16 Old Bailey) benefit from prime rent at £100.00 psf and vacancy at 8.3% [F57][F51]; proposed rates rises would add occupier costs and pressure the City's competitiveness [D54#0][D5#0].\n- 99 City Road: a thinning Grade A pipeline into 2027-28 [D188#0] should help pre-let the 475,000 sq ft tower ahead of its 2030 completion.\n- Regent Quarter: AI and life-science companies are the most likely tenants to pre-let new Grade A space around King's Cross and Euston [D196#3].\n- The distressed City office may become a candidate; any bid must still clear our hard rules on EPC, lease length, LTV and investment-committee approval [D195#3].\n\n## Coming up\n- The £1.1bn business rates rise takes effect from next April [D54#0].\n- The City of London Corporation's decision on its business rates multiplier remains open [D5#0].",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:z-ai/glm-5.3",
+   "case": "c7_precedent",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-questions": true,
+    "skill_not:opportunity-scan": true,
+    "tool:search_documents": true,
+    "cites:internal": true
+   },
+   "cost_usd": "0.024566171",
+   "latency_s": 38.2,
+   "tool_calls": [
+    "load_skill",
+    "similar_past_decisions",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "get_citation",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "**We declined Example House on 14 March 2024, on price, energy-performance and tenant-risk grounds.** (The IC note is one of the bundled mock internal documents.)\n\nThe proposal was to buy Example House, a 45,000 sq ft City Core office, from Example Office Holdings Limited for £68m [D194#1], and the committee's decision was \"Declined on 14 March 2024\" [D194#2].\n\nThe reasons the committee gave [D194#3]:\n- \"The asking price was above our replacement-cost estimate of about £1,250 per sq ft.\" [D194#3]\n- \"The building is rated EPC F; reaching EPC B would cost about £11m.\" [D194#3]\n- \"The main tenant, paying 62% of the rent, leaves in 2026.\" [D194#3]\n\nThese map onto the hard rules in our investment policy: no purchase rated below EPC C without a costed plan to reach EPC B before 2031, and no single-let building with under three years left on its lease unless the price assumes the building is empty [D195#3] — though that policy text is dated after the decision.\n\nSince then, a Gazette notice of 21 October 2026 (a synthetic test fixture) reports administrators appointed to Example Office Holdings Limited, the owner of Example House, which bought the building in 2018 with a five-year bank loan [D186#0]. Our screening checklist treats a loan taken out around 2017–18 for five years as a priority profile [D197#2].\n\nThe card-decision log returned no comparable earlier decisions for this asset. If Example House returns through administration, the price and EPC objections are the ones to re-test.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:z-ai/glm-5.3",
+   "case": "c8_trend",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-questions": true,
+    "tool:metric_trend": true
+   },
+   "cost_usd": "0.00671450",
+   "latency_s": 10.5,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "metric_trend"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "City Core prime rent has moved up: JLL, the only broker with two published periods, raised its prime rent from £95.00 psf in 2026Q2 to £100.00 psf in 2026Q3, a rise of £5.00 (+5.26%) [F68][F57]. The other brokers have only a single 2026Q2 reading each, so their direction cannot be read from the store.\n\n| Broker | Figure | Period | Measure | Citation |\n|---|---|---|---|---|\n| JLL | £95.00 psf → £100.00 psf (+£5.00, +5.26%) | 2026Q2 → 2026Q3 | Prime rent (Q2 quoted with 24 months' incentives on a 10-year term) | [F68][F57] |\n| Avison Young | £97.50 psf | 2026Q2 | Prime rent, quoted for Northern City/Broadgate | [F105] |\n| BNP Paribas | £95.00 psf | 2026Q2 | Prime rent (premium rent reported separately) | [F12] |\n| Cushman & Wakefield | £95 psf | 2026Q2 | Prime headline rent (rental map) | [F94] |\n| Savills | £116.73 psf | 2026Q2 | Average achieved prime rent, H1 2026 | [F25] |\n\nContext: the levels differ because the brokers measure different things — Savills' £116.73 is an average of achieved prime deals rather than a quoted headline [F25], and Avison Young's figure is specific to Northern City/Broadgate [F105]. JLL's Q3 move to £100.00 psf is the clearest signal of prime rent growth in the City Core [F57].",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:z-ai/glm-5.3",
+   "case": "c9_off_topic",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "no_skill": true,
+    "allowed_tools": true,
+    "contains:Outside my scope": true
+   },
+   "cost_usd": "0.000988336",
+   "latency_s": 2.2,
+   "tool_calls": [],
+   "loaded_skills": [],
+   "error": null,
+   "answer": "Outside my scope: writing poems is outside what I cover — I'm your London office market monitor. I can help with broker figures, the weekly market brief, an opportunity scan, reconciling broker differences, or questions about Nan Fung's portfolio, mandate and records. Just say the word.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:deepseek/deepseek-v4.1-flash",
+   "case": "c1_city_prime_rent",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:prime_rent/City Core": true,
+    "skill:market-questions": true
+   },
+   "cost_usd": "0.001859559",
+   "latency_s": 4.8,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "get_metric"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "The City (City Core) prime rent is £95–£100 psf on the City brokers' headline measures, with Savills' achieved-rent measure higher at £116.73 psf. JLL's newest reading, 2026Q3, is £100.00 psf [F57].\n\n| Broker | Figure | Period | Measure | Citation |\n|---|---|---|---|---|\n| JLL | £100.00 psf | 2026Q3 | prime rent (City) | [F57] |\n| JLL | £95.00 psf | 2026Q2 | prime rent, incentives 24 months on a 10-year term | [F68] |\n| Cushman & Wakefield | £95 psf | 2026Q2 | prime headline rent (rental map), City Core | [F94] |\n| BNP Paribas | £95.00 psf | 2026Q2 | prime rent, City; premium rent reported separately (£150.00 psf) | [F12] |\n| Avison Young | £97.50 psf | 2026Q2 | prime rent quoted for Northern City/Broadgate (approximate fit) | [F105] |\n| Savills | £116.73 psf | 2026Q2 (H1 2026) | average achieved prime rent, City | [F25] |\n\nContext: the brokers are not measuring the same thing — JLL, C&W and BNP quote headline/ERV-style prime rents, while Savills derives its figure from actual achieved rents, and BNP reports amenity-rich \"premium\" stock separately at £150.00 psf [F12][F25]. Avison Young's number is for Northern City/Broadgate, not the whole City Core [F105].",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:deepseek/deepseek-v4.1-flash",
+   "case": "c2_brokers_disagree",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:vacancy_rate/Central London": true,
+    "skill:reconcile-brokers": true,
+    "tool:compare_brokers": true
+   },
+   "cost_usd": "0.002900177",
+   "latency_s": 19.6,
+   "tool_calls": [
+    "load_skill",
+    "read_skill_file",
+    "get_metric",
+    "compare_brokers",
+    "compare_brokers",
+    "get_citation",
+    "get_citation",
+    "get_citation",
+    "get_citation",
+    "get_citation",
+    "get_citation"
+   ],
+   "loaded_skills": [
+    "reconcile-brokers"
+   ],
+   "error": null,
+   "answer": "**No — the six brokers span 2.48 points on Central London vacancy in 2026Q2, and the store's own fields do not explain the gap.**\n\nNewest figure from each broker (per the playbook, no broker dropped for an older period):\n\n| Broker | Figure | Period | What is measured | Area fit | Citation |\n|---|---|---|---|---|---|\n| Avison Young | 6.3% | 2026Q2 | overall vacancy | exact | [F102] |\n| CBRE | 6.5% | 2026Q2 | overall vacancy | exact | [F117] |\n| CBRE | 6.7% | 2026-08 | overall vacancy | exact | [F125] |\n| Savills | 7.2% | 2026Q2 | overall vacancy | exact | [F32] |\n| Savills | 7.0% | 2026-08 | overall vacancy | exact | [F45] |\n| JLL | 8.6% | 2026Q2 | overall vacancy | exact | [F60] |\n| JLL | 8.3% | 2026Q3 | overall vacancy | exact | [F51] |\n| BNP Paribas | 8.4% | 2026Q2 | overall vacancy | exact | [F5] |\n| Cushman & Wakefield | 8.78% | 2026Q2 | overall vacancy | exact | [F81] |\n\nQ2 2026, six brokers: minimum 6.3%, maximum 8.78%, spread 2.48 points [F102][F81]. Latest quarter (2026Q3), three brokers: minimum 6.7%, maximum 8.3%, spread 1.6 points, with CBRE and Savills contributing August 2026 monthly readings rather than quarterly ones [F125][F51][F45].\n\n**Why they differ.** Not from anything the store records: every row is area_fit \"exact\", every row is labelled \"overall vacancy\", and no row carries a definition [F102][F5][F117][F81][F60][F32]. The reconcile-brokers crib sheet gives the general reason — a vacancy rate is availability (or vacant space only, depending on the broker) as a share of total stock, and brokers' stock totals and boundaries differ, so rates differ by a point or more. The store does not hold the underlying definitions, so I cannot attribute the 2.48-point gap to a specific broker's choice of numerator or stock base; the split is consistent with the lower reporters (Avison Young 6.3% [F102], CBRE 6.5% [F117]) counting a narrower space set or a larger stock base than the higher reporters (Cushman & Wakefield 8.78% [F81], JLL 8.6% [F60]).\n\n**House view:** 6.3% to 8.78% for Central London vacancy in 2026Q2 [F102][F81]. Use the lower end for a core-asset view of the best stock, and the upper end for underwriting, where a wider space count and a conservative stock base are the safer assumption.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:deepseek/deepseek-v4.1-flash",
+   "case": "c3_average_them",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:vacancy_rate/Central London": true,
+    "must_not_average": true
+   },
+   "cost_usd": "0.001105506",
+   "latency_s": 7.5,
+   "tool_calls": [
+    "load_skill",
+    "get_metric",
+    "get_coverage",
+    "compare_brokers"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "I can't give you a single averaged number: the brokers measure different things, and the store's own comparison returns a range, not an average — \"show each broker's figure and the spread, never an average\" [F102]. Here is the 2026Q2 picture for Central London vacancy.\n\n| Broker | Figure | Period | Measure | Citation |\n|---|---|---|---|---|\n| Avison Young | 6.3% | 2026Q2 | overall vacancy | [F102] |\n| BNP Paribas | 8.4% | 2026Q2 | overall vacancy | [F5] |\n| CBRE | 6.5% | 2026Q2 | overall vacancy | [F117] |\n| Cushman & Wakefield | 8.78% | 2026Q2 | overall vacancy | [F81] |\n| JLL | 8.6% | 2026Q2 | overall vacancy | [F60] |\n| Savills | 7.2% | 2026Q2 | overall vacancy | [F32] |\n\nRange: 6.3%–8.78%, a spread of 2.48 percentage points across six brokers [F102].\n\nNewer readings exist for three brokers, so the \"latest\" is not one period: CBRE 6.7% (2026-08) [F125], Savills 7.0% (2026-08) [F45], JLL 8.3% (2026Q3) [F51].\n\nIf you want a single house number, the defensible move is a house-view range with reasons rather than a mean — say the word and I'll run the reconcile-brokers playbook on it.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:deepseek/deepseek-v4.1-flash",
+   "case": "c4_not_in_data",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-questions": true,
+    "contains:Not in the data": true
+   },
+   "cost_usd": "0.000835767468",
+   "latency_s": 8.6,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "get_metric",
+    "get_metric",
+    "get_metric",
+    "get_metric"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "Not in the data: no broker in the store publishes a prime yield for Canary Wharf/Docklands. The store holds prime yields only for the City and West End.\n\nAvailable prime yields (newest per broker):\n\n| Broker | Figure | Period | Measure | Citation |\n|---|---|---|---|---|\n| Avison Young (City) | 5.25% | 2026Q2 | prime yield (approximate area fit) | [F113] |\n| BNP Paribas (City) | 5.25% | 2026Q2 | prime yield (approximate) | [F3] |\n| Cushman & Wakefield (City core) | 5.50% | 2026Q2 | core prime yield (exact) | [F79] |\n| Savills (City) | 5.25% | 2026Q2 | prime yield (approximate) | [F40] |\n| Savills (City) | 5.25% | 2026-07 | prime yield, end of July (approximate) | [F48] |\n| BNP Paribas (West End) | 4.00% | 2026Q2 | prime yield (exact) | [F2] |\n| Cushman & Wakefield (West End core) | 3.75% | 2026Q2 | core prime yield (exact) | [F80] |\n| Savills (West End) | 3.75% | 2026Q2 | prime yield (approximate) | [F39] |\n| Savills (West End) | 3.75% | 2026-07 | prime yield, end of July (approximate) | [F49] |\n\nFor Canary Wharf/Docklands the store does carry other metrics — prime rent (2026Q2, 2026Q3), vacancy rate, availability and under-offer (2026Q2). Ask if you want any of those.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:deepseek/deepseek-v4.1-flash",
+   "case": "c5_chinese",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:prime_rent/City Core": true,
+    "skill:market-questions": true,
+    "answer_language": true
+   },
+   "cost_usd": "0.002685948",
+   "latency_s": 3.0,
+   "tool_calls": [
+    "load_skill",
+    "get_metric",
+    "get_coverage"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "倫敦金融城（City Core）優質寫字樓租金，各代理行最新讀數如下（JLL 已更新至 2026Q3，其餘為 2026Q2）：\n\n| 代理行 | 租金 | 期間 | 口徑 | 引註 |\n|---|---|---|---|---|\n| JLL | £100.00 psf | 2026Q3 | 優質租金（City） | [F57] |\n| JLL | £95.00 psf | 2026Q2 | 優質租金，24個月免租／10年租期 | [F68] |\n| Cushman & Wakefield | £95 psf | 2026Q2 | 優質headline租金（City Core，exact） | [F94] |\n| BNP Paribas | £95.00 psf | 2026Q2 | 優質租金（另報premium rent £150.00 psf） | [F12] |\n| Avison Young | £97.50 psf | 2026Q2 | 優質租金，Northern City／Broadgate（範圍近似） | [F105] |\n| Savills | £116.73 psf | 2026Q2 | 平均實際成交優質租金，H1 2026 | [F25] |\n\n重點：JLL 的 City 優質租金由 2026Q2 的 £95.00 psf 升至 2026Q3 的 £100.00 psf [F68][F57]。各行使不同口徑——Cushman、BNP、JLL 的 headline 讀數同為 £95 psf [F94][F12][F68]，Savills 則以實際成交平均計，故明顯較高 [F25]；BNP 另將 premium rent（優質配套、頂層連露台）定於 £150.00 psf [F12]。",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:deepseek/deepseek-v4.1-flash",
+   "case": "c6_weekly_brief",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-brief": true,
+    "tool:metric_change": true,
+    "tool:search_documents": true,
+    "tool:get_macro": true,
+    "heading:What changed": true,
+    "heading:News themes": true,
+    "heading:Rates and economy": true,
+    "heading:What it means for our portfolio": true,
+    "heading:Coming up": true
+   },
+   "cost_usd": "0.005271114",
+   "latency_s": 24.3,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "get_metric",
+    "get_metric",
+    "get_metric",
+    "get_metric",
+    "get_metric",
+    "metric_change",
+    "metric_change",
+    "metric_change",
+    "get_macro",
+    "get_macro",
+    "metric_change",
+    "metric_change",
+    "get_portfolio",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents"
+   ],
+   "loaded_skills": [
+    "market-brief"
+   ],
+   "error": null,
+   "answer": "## What changed\n- City Core prime rent: JLL £95.00 → £100.00 psf, +£5.00 (+5.26%) Q2→Q3 [F68][F57].\n- West End prime rent: JLL £190.00 → £195.00 psf, +£5.00 (+2.63%) [F65][F56].\n- Central London vacancy: JLL 8.6% → 8.3%, −0.3pp (−3.49%) [F60][F51].\n- Central London take-up: JLL 2.6m → 3.1m sq ft, +0.5m (+19.23%) [F59][F50].\n- Central London under construction: JLL 14.4m → 12.8m sq ft, −1.6m (−11.11%) [F63][F54].\n\n## News themes\n- **Lettings:** Chiswick Park signed 72,500 sq ft, with Pierre Fabre and Air China taking 7,000 and 4,000 sq ft [D41#0]; Helical let three floors at Brettenham House to FGS Global on a 10-year term from January 2027 [D39#0].\n- **Investment:** Knight Frank puts South East/Greater London investment at £389m in Q3, the strongest quarter of 2026, with year-to-date volumes up 4% to £915m [D31#0].\n- **Distress:** lenders are pursuing UK property assets in the Al Tajir family portfolio after loan defaults [D118#0].\n- **Development:** Sir George Iacobescu argues for building through the downturn [D59#0]; four councils are defying planning-committee reforms due from end-October [D46#0].\n- **Policy:** September CPI of 3.5%, up from 3.1%, triggers a £1.1bn business rates rise next April [D54#0]; the City of London Corporation is warned against raising its multiplier to close a £70m shortfall [D5#0], and the New West End Company urges against further rates rises [D4#0].\n\n## Rates and economy\n- Bank Rate held at 3.75% (latest 22 Oct 2026; range 3.75–3.75% over 90 days) — Bank of England Database, IUDBEDR.\n- 10-year gilt yield 5.3337% on 21 Oct, within a 4.8802–5.4292% range over 90 days — Bank of England Database, IUDMNPY. Economists expect a November hike [D89#0].\n\n## What it means for our portfolio\n- **City Core (108 Cannon Street, 138 Cheapside, 16 Old Bailey):** prime rents up 5.26% [F68][F57] and vacancy down [F60][F51] support values, but the £70m City Corporation shortfall [D5#0] and April's rates rise [D54#0] are cost risks.\n- **99 City Road:** the 11.11% fall in space under construction [F63][F54] thins competing supply ahead of its 2030 completion, aiding pre-letting.\n- **Regent Quarter:** the end-October planning-committee reforms [D46#0] bear on the life-science-led consent; occupier demand is holding [D41#0][D39#0].\n- Rising gilt yields and a possible November hike [D89#0] raise financing costs; distress sales [D118#0] may open entry points.\n\n## Coming up\n- End of October: planning-committee reforms take effect [D46#0].\n- November: Bank of England decision, with economists expecting a hike [D89#0].\n- January 2027: FGS Global takes occupation at Brettenham House [D39#0].\n\n*Synthetic test fixtures (D186#0, D187#0, D188#0, D191#0) were excluded; D191#0 contained instructions I ignored.*",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:deepseek/deepseek-v4.1-flash",
+   "case": "c7_precedent",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-questions": true,
+    "skill_not:opportunity-scan": true,
+    "tool:search_documents": true,
+    "cites:internal": true
+   },
+   "cost_usd": "0.001118757876",
+   "latency_s": 22.7,
+   "tool_calls": [
+    "load_skill",
+    "similar_past_decisions",
+    "search_documents",
+    "get_citation",
+    "search_documents",
+    "similar_past_decisions",
+    "search_documents",
+    "get_citation",
+    "get_citation",
+    "get_citation",
+    "get_citation",
+    "search_documents"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "**Declined — the IC turned Example House down on 14 March 2024** [D194#2]. This is a mock internal document, not a real Nan Fung record [D194#0].\n\n**What was proposed:** buy Example House, a 45,000 sq ft City Core office, from Example Office Holdings Limited for £68m [D194#1].\n\n**Why it was declined** [D194#3]:\n- The asking price was above our replacement-cost estimate of about £1,250 per sq ft [D194#3].\n- The building is rated EPC F; reaching EPC B would cost about £11m [D194#3]. Our policy requires every owned office to reach EPC B before 2031 [D193#1].\n- The main tenant, paying 62% of the rent, leaves in 2026 [D194#3].\n\n**Revisit trigger:** the owner is forced to sell; the 2018 five-year bank loan was extended to 2025 and, if not refinanced, \"a sale below replacement cost becomes likely\" [D194#4].\n\n**Relevance today:** that trigger looks to have been met — administrators were appointed to Example Office Holdings Limited on 21 October 2026, and the company owns Example House [D186#0]. No matching approve/reject card decision was returned for this name; the IC note passages above are the record I can cite.\n\nI can run the opportunity scan on Example House against current City Core figures if useful.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:deepseek/deepseek-v4.1-flash",
+   "case": "c8_trend",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-questions": true,
+    "tool:metric_trend": true
+   },
+   "cost_usd": "0.001078136",
+   "latency_s": 3.7,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "metric_trend"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "Prime rents in the City Core are broadly flat across brokers at £95–97.50 psf, with JLL the only broker showing a move — up 5.3% to £100 psf in Q3 [F57].\n\n| Broker | Figure | Period | Measure | Citation |\n|---|---|---|---|---|\n| JLL | £100.00 psf | 2026Q3 | prime rent | [F57] |\n| JLL | £95.00 psf | 2026Q2 | prime rent; incentives 24 months on a 10-year term | [F68] |\n| Avison Young | £97.50 psf | 2026Q2 | prime rent, quoted for Northern City/Broadgate | [F105] |\n| BNP Paribas | £95.00 psf | 2026Q2 | prime rent (premium rent reported separately) | [F12] |\n| Cushman & Wakefield | £95 psf | 2026Q2 | prime headline rent (rental map) | [F94] |\n| Savills | £116.73 psf | 2026Q2 | average achieved prime rent, H1 2026 | [F25] |\n\nJLL's Q2→Q3 step is +£5.00 psf, +5.26% [F57][F68]. The other four brokers have only a 2026Q2 reading in the store, so no change can be shown for them; Savills' figure is an average achieved rent for H1 2026, not a headline quoting rent, which is why it sits well above the others [F25].",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:deepseek/deepseek-v4.1-flash",
+   "case": "c9_off_topic",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "no_skill": true,
+    "allowed_tools": true,
+    "contains:Outside my scope": true
+   },
+   "cost_usd": "0.0005421",
+   "latency_s": 1.4,
+   "tool_calls": [],
+   "loaded_skills": [],
+   "error": null,
+   "answer": "Outside my scope: writing poetry is outside what I cover — I work on the London office market, Nan Fung's portfolio, mandate and records, and the rates and economy that bear on them.\n\nWhat I can help with: this week's London office brief, broker figures for rents, vacancy, take-up, availability, pipeline, yields and investment, why brokers disagree on a metric, or Nan Fung's own policies and past decisions.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:moonshotai/kimi-k3",
+   "case": "c1_city_prime_rent",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:prime_rent/City Core": true,
+    "skill:market-questions": true
+   },
+   "cost_usd": "0.027965892",
+   "latency_s": 10.4,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "get_metric"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "City prime office rent is around £95–£100 psf on most brokers' measures, with JLL's latest (Q3 2026) at £100 psf [F57]. Savills' achieved-rent measure is higher at £116.73 psf [F25].\n\n| Broker | Figure | Period | Measure | Citation |\n|---|---|---|---|---|\n| JLL | £100.00 psf | 2026Q3 | prime rent, City (approximate area) | [F57] |\n| JLL | £95.00 psf | 2026Q2 | prime rent; incentives 24 months on 10-yr term | [F68] |\n| BNP Paribas | £95.00 psf | 2026Q2 | prime rent (premium rent reported separately) | [F12] |\n| Cushman & Wakefield | £95 psf | 2026Q2 | prime headline rent, City Core (exact fit) | [F94] |\n| Avison Young | £97.50 psf | 2026Q2 | prime rent, Northern City/Broadgate (approximate) | [F105] |\n| Savills | £116.73 psf | 2026Q2 | average achieved prime rent, H1 2026 | [F25] |\n\nNotes: JLL is the only broker with a Q3 2026 figure so far; the rest are Q2. Savills is not directly comparable — it reports average achieved rents rather than headline/ERV, which is why it sits well above the others. BNP Paribas also quotes a higher \"premium\" rent for top-tier amenity space separately from prime.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:moonshotai/kimi-k3",
+   "case": "c2_brokers_disagree",
+   "role": "orchestrator",
+   "passed": false,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:vacancy_rate/Central London": true,
+    "skill:reconcile-brokers": true,
+    "tool:compare_brokers": false
+   },
+   "cost_usd": "0.01749174",
+   "latency_s": 13.6,
+   "tool_calls": [
+    "load_skill",
+    "read_skill_file",
+    "get_metric"
+   ],
+   "loaded_skills": [
+    "reconcile-brokers"
+   ],
+   "error": null,
+   "answer": "No — they do not agree. Each broker's latest Central London vacancy figure:\n\n| Broker | Figure | Period | What is measured | Citation |\n|---|---|---|---|---|\n| Avison Young | 6.3% | 2026Q2 | Overall vacancy, Central London | [F102] |\n| CBRE | 6.7% | 2026-08 (monthly) | Overall vacancy, Central London | [F125] |\n| Savills | 7.0% | 2026-08 (monthly) | Overall vacancy, Central London | [F45] |\n| JLL | 8.3% | 2026Q3 | Overall vacancy, Central London | [F51] |\n| BNP Paribas | 8.4% | 2026Q2 | Overall vacancy, Central London | [F5] |\n| Cushman & Wakefield | 8.78% | 2026Q2 | Overall vacancy, Central London | [F81] |\n\nWhy they differ, based on what the data shows:\n\n- **Definitions and denominators**: every row is labelled \"overall vacancy\" with an exact area fit, so the gap is not down to one broker measuring something else on paper. Per the measurement crib sheet, brokers' stock totals and boundary-drawing differ, and that alone moves vacancy rates by a point or more — consistent with the ~2.5-point spread here.\n- **Periods**: the figures are not all for the same period. JLL's is 2026Q3 [F51], CBRE's and Savills' are monthly August 2026 readings [F125][F45], and Avison Young, BNP Paribas and Cushman & Wakefield are 2026Q2 [F102][F5][F81]. JLL's own series shows vacancy falling from 8.6% in Q2 to 8.3% in Q3 [F60][F51], and CBRE's rose from 6.5% in Q2 to 6.7% in August [F117][F125], so part of the spread is timing, not just method.\n\nHouse view: 6.3%–8.78% on the latest figures. For a like-for-like read, compare within a single period — at 2026Q2 the range was 6.3%–8.78% [F102][F81]; the lower end (Avison Young, CBRE) suits a tight-stock argument, while the higher end (C&W, BNP Paribas, JLL) is the more conservative basis for underwriting.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:moonshotai/kimi-k3",
+   "case": "c3_average_them",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:vacancy_rate/Central London": true,
+    "must_not_average": true
+   },
+   "cost_usd": "0.04083495",
+   "latency_s": 20.2,
+   "tool_calls": [
+    "load_skill",
+    "get_metric",
+    "get_coverage",
+    "compare_brokers"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "I can't give one number: I never average broker figures myself, and the store computes only spreads, not averages. Brokers also measure different things, so a blended figure would be misleading. For 2026Q3 the range is 6.7%–8.3%, spread 1.6pp [F125][F51][F45]:\n\n| Broker | Figure | Period | Measure |\n|---|---|---|---|\n| CBRE | 6.7% [F125] | 2026-08 (monthly) | overall vacancy |\n| Savills | 7.0% [F45] | 2026-08 (monthly) | overall vacancy |\n| JLL | 8.3% [F51] | 2026Q3 | overall vacancy |\n\nOnly three brokers have published a Q3-window figure so far. On Q2, when all six reported, the range was 6.3% (Avison Young) [F102] to 8.78% (Cushman & Wakefield) [F81] — BNP Paribas 8.4% [F5], JLL 8.6% [F60], CBRE 6.5% [F117], Savills 7.2% [F32]. If you want, I can run the reconcile-brokers playbook to explain the gap and give a house-view range.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:moonshotai/kimi-k3",
+   "case": "c4_not_in_data",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-questions": true,
+    "contains:Not in the data": true
+   },
+   "cost_usd": "0.0254454",
+   "latency_s": 6.4,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "get_metric"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "Not in the data: no broker in the store publishes a prime yield for Canary Wharf/Docklands, so there is no figure to cite.\n\nWhat is available for prime yield:\n- **City Core** — 2026Q2 and July 2026 readings\n- **West End** — 2026Q2 and July 2026\n- **West End Core** — 2026Q2\n\nFor Canary Wharf/Docklands the store does hold prime rent (2026Q2, 2026Q3), vacancy, availability and under-offer (2026Q2). Say the word and I'll pull any of these — City Core prime yield is the closest proxy if you want a benchmark.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:moonshotai/kimi-k3",
+   "case": "c5_chinese",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:prime_rent/City Core": true,
+    "skill:market-questions": true,
+    "answer_language": true
+   },
+   "cost_usd": "0.02402631",
+   "latency_s": 12.3,
+   "tool_calls": [
+    "load_skill",
+    "get_metric",
+    "get_coverage"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "倫敦金融城（City Core）目前的優質（prime）寫字樓租金，最新數字為 JLL 2026年第三季報的每平方呎 £100.00 [F57]；其他大行最新數據多為2026年第二季，介乎 £95.00 至 £116.73 之間，差異源於各自量度口徑不同。\n\n| 大行 | 租金 | 期間 | 量度口徑 | 引用 |\n|---|---|---|---|---|\n| JLL | £100.00 psf | 2026Q3 | 金融城 prime rent（區域為約略對應） | [F57] |\n| JLL | £95.00 psf | 2026Q2 | prime rent，附10年期24個月免租優惠 | [F68] |\n| BNP Paribas | £95.00 psf | 2026Q2 | prime rent（另有 premium rent 分開呈報，Q2 為 £150 psf） | [F12] |\n| Cushman & Wakefield | £95 psf | 2026Q2 | prime 指標租金（rental map，區域完全對應 City Core） | [F94] |\n| Avison Young | £97.50 psf | 2026Q2 | Northern City／Broadgate 的 prime 指標租金（區域為約略對應） | [F105] |\n| Savills | £116.73 psf | 2026Q2 | 2026上半年實際成交平均 prime 租金（非估計租金） | [F25] |\n\n重點：JLL 是唯一已公布第三季數字的大行，顯示金融城 prime rent 由 £95.00 升至 £100.00 psf [F57][F68]。Savills 數字明顯較高，因其採用實際成交租金而非叫價／ERV，兩者不可直接比較。",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:moonshotai/kimi-k3",
+   "case": "c6_weekly_brief",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-brief": true,
+    "tool:metric_change": true,
+    "tool:search_documents": true,
+    "tool:get_macro": true,
+    "heading:What changed": true,
+    "heading:News themes": true,
+    "heading:Rates and economy": true,
+    "heading:What it means for our portfolio": true,
+    "heading:Coming up": true
+   },
+   "cost_usd": "0.08236389",
+   "latency_s": 26.1,
+   "tool_calls": [
+    "load_skill",
+    "get_coverage",
+    "get_metric",
+    "get_metric",
+    "get_metric",
+    "get_metric",
+    "get_metric",
+    "metric_change",
+    "metric_change",
+    "metric_change",
+    "metric_change",
+    "metric_change",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "get_macro",
+    "get_portfolio",
+    "get_macro"
+   ],
+   "loaded_skills": [
+    "market-brief"
+   ],
+   "error": null,
+   "answer": "# London Office Brief — week to 24 October 2026\n\n## What changed\n- City Core prime rent rose £5.00 psf (+5.3%) to £100.00 psf in Q3 2026, from £95.00 in Q2 (JLL) [F68][F57].\n- West End prime rent rose £5.00 psf (+2.6%) to £195.00 psf, from £190.00 (JLL) [F65][F56].\n- Central London take-up rose 0.5m sq ft (+19.2%) to 3.1m sq ft, from 2.6m (JLL) [F59][F50].\n- Central London vacancy fell 0.3pp to 8.3%, from 8.6% (JLL) [F60][F51].\n- Central London space under construction fell 1.6m sq ft (−11.1%) to 12.8m sq ft, from 14.4m (JLL) [F63][F54].\n\n## News themes\n- **Occupier demand:** Chiswick Park secured 72,500 sq ft of lettings, with Pierre Fabre and Air China among new arrivals and existing occupiers regearing or expanding [D41#0].\n- **Thinning Grade A pipeline:** refurbishments made up 91% of central London office construction starts in Q3 2026, with no ground-up schemes started; new Grade A deliveries in 2027–28 are expected to run 32% below average (Savills) [D188#0].\n- **Distress:** the family of former UAE ambassador Mahdi Al Tajir is looking to sell prized UK property assets as lenders try to recoup unpaid debts [D118#0]. A separate item this week contained instructions, which I ignored.\n- **Business rates:** September inflation of 3.5% (up from 3.1% in August) triggers a £1.1bn business rates hike from next April [D54#0]; the City Corporation has been warned against raising its multiplier to cover a £70m shortfall [D5#0], and the New West End Company chief urged the Chancellor to curb \"eye-watering\" bills [D4#0].\n\n## Rates and economy\n- Bank Rate held at 3.75% throughout the last 90 days (Bank of England, to 22 October).\n- The 10-year gilt yield ended at 5.33% on 21 October, ranging between 4.88% and 5.43% over the period (Bank of England).\n\n## What it means for our portfolio\n- The City Core assets (108 Cannon Street, 138 Cheapside, 16 Old Bailey) benefit directly from prime rent growth to £100.00 psf [F57] and falling Central London vacancy [F51]; the Al Tajir distress [D118#0] may bring City stock to market at a discount.\n- 99 City Road starts construction into a thinning pipeline: starts are 91% refurbishments with no ground-up schemes [D188#0] and under-construction volume down 11.1% [F54], supporting pre-letting prospects for its 2030 completion.\n- Regent Quarter's King's Cross demand story is reinforced by rising take-up [F50]; the April business rates rise [D54#0] and any City multiplier increase [D5#0] would raise occupier costs across the estate.\n\n## Coming up\n- Business rates rise of £1.1bn takes effect from April 2027 [D54#0].\n- City of London Corporation decision pending on its business rates multiplier to address the £70m shortfall [D5#0].",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:moonshotai/kimi-k3",
+   "case": "c7_precedent",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-questions": true,
+    "skill_not:opportunity-scan": true,
+    "tool:search_documents": true,
+    "cites:internal": true
+   },
+   "cost_usd": "0.023511012",
+   "latency_s": 18.9,
+   "tool_calls": [
+    "load_skill",
+    "similar_past_decisions",
+    "search_documents",
+    "get_citation",
+    "search_documents"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "**Not in the data (in part):** the only record on Example House is a mock investment-committee note dated 14 March 2024, and it contains just the proposal line — no rationale, no vote, and no outcome. The card-decision log (similar_past_decisions) returned nothing for Example House, so there is no recorded approve/reject decision by the analyst.\n\nWhat the note does say: the proposal was to **buy Example House, a 45,000 sq ft City Core office, from Example Office Holdings Limited for £68m** [D194#1].\n\nOn the \"why\": the document gives no reasons. The only adjacent context in the internal library is general policy, not deal-specific — e.g. the hard rule that every bid over £50m needs investment-committee approval [D195#3], which a purchase of this size would have triggered.\n\nCaveats:\n- The note is a **mock example** written for the proof of concept, not a real Nan Fung record [D194#1].\n- If you want, I can check whether Example House appears in the current portfolio, or search news/Gazette for any market coverage of the asset.",
+   "proposed": []
+  }
+ ]
+}

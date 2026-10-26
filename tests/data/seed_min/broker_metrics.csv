@@ -1,0 +1,8 @@
+broker,metric,submarket,broker_label,period,value,unit,measure_note,source_key,checked_at,check_method,locator
+Avison Young,vacancy_rate,Central London,Central London,2026Q2,6.3,%,overall vacancy,t-b,2026-10-24,manual,
+Savills,vacancy_rate,Central London,Central London,2026Q2,7.1,%,overall vacancy,t-b,2026-10-24,manual,
+BNP Paribas,vacancy_rate,Central London,Central London,2026Q2,8.4,%,overall vacancy,t-a,2026-10-24,manual,p. 2
+CBRE,vacancy_rate,Central London,Central London,2026-08,6.7,%,monthly reading,t-c,2026-10-24,manual,
+JLL,prime_rent,City Core,City Core,2026Q2,100.00,GBP psf pa,headline prime,t-a,2026-10-24,manual,p. 3
+JLL,prime_rent,City Core,City Core,2026Q3,110.00,GBP psf pa,headline prime,t-a,2026-10-24,manual,p. 3
+BNP Paribas,prime_rent,City Core,City,2026Q2,95.00,GBP psf pa,prime (a separate premium tier exists),t-a,2026-10-24,manual,p. 4

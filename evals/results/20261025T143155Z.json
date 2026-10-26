@@ -1,0 +1,56 @@
+{
+ "started_at": "2026-10-25T14:31:55+00:00",
+ "spent_usd": "0.020828355",
+ "stopped_by_budget": false,
+ "runs": [
+  {
+   "repeat": 1,
+   "model": "openrouter:moonshotai/kimi-k3",
+   "case": "c8_trend",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "skill:market-questions": true,
+    "tool:metric_trend": true
+   },
+   "cost_usd": "0.015139305",
+   "latency_s": 13.3,
+   "tool_calls": [
+    "load_skill",
+    "metric_trend",
+    "get_coverage"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "City Core prime rent has only one broker with a multi-period series: JLL shows a step up in Q3 2026. The other brokers have published a single (Q2 2026) reading each, so no trend can be drawn for them.\n\n**JLL (the only series with movement):** prime rent rose from £95.00 psf in 2026Q2 [F68] to £100.00 psf in 2026Q3 [F57], a change of +£5.00 psf (+5.26%) — the chart above plots this series.\n\n**Single readings (2026Q2 only, no trend available):**\n\n| Broker | Figure | Period | Measure | Citation |\n|---|---|---|---|---|\n| Avison Young | £97.50 psf | 2026Q2 | Prime rent, quoted for Northern City/Broadgate (approximate area fit) | [F105] |\n| BNP Paribas | £95.00 psf | 2026Q2 | Prime rent (premium rent reported separately) | [F12] |\n| Cushman & Wakefield | £95 psf | 2026Q2 | Prime headline rent (rental map) | [F94] |\n| Savills | £116.73 psf | 2026Q2 | Average achieved prime rent, H1 2026 | [F25] |\n\nNote the brokers are not directly comparable: Savills' £116.73 psf is an average of *achieved* prime rents over H1, which sits well above the headline/quoted figures from JLL, BNP Paribas and C&W, and Avison Young quotes a narrower Northern City/Broadgate area. JLL's Q2 figure also carried incentives of 24 months on a 10-year term [F68].\n\n**Direction:** on the only like-for-like series available, City prime rent moved up in Q3 2026 — JLL's £5 psf rise to £100 psf is consistent with a tightening prime market. Whether the other brokers confirm that move will only be clear when they publish Q3 figures.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:moonshotai/kimi-k3",
+   "case": "c9_off_topic",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "no_skill": true,
+    "allowed_tools": true,
+    "contains:Outside my scope": true
+   },
+   "cost_usd": "0.00568905",
+   "latency_s": 5.9,
+   "tool_calls": [],
+   "loaded_skills": [],
+   "error": null,
+   "answer": "Outside my scope: I cover the London office market, Nan Fung’s portfolio, mandate and records, and related rates/economy; I can help with market briefs, broker figures, opportunity scans, or internal policy questions.",
+   "proposed": []
+  }
+ ]
+}

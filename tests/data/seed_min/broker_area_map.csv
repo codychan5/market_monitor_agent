@@ -1,0 +1,7 @@
+broker,broker_label,submarket,fit,note
+Avison Young,Central London,Central London,exact,
+Savills,Central London,Central London,exact,
+BNP Paribas,Central London,Central London,exact,
+CBRE,Central London,Central London,exact,
+JLL,City Core,City Core,exact,
+BNP Paribas,City,City Core,approximate,BNP's City covers more than the City Core

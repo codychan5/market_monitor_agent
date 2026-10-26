@@ -1,0 +1,111 @@
+{
+ "started_at": "2026-10-24T11:37:22+00:00",
+ "spent_usd": "0.045358395",
+ "stopped_by_budget": false,
+ "runs": [
+  {
+   "repeat": 1,
+   "model": "openrouter:deepseek/deepseek-v4.1-flash",
+   "case": "c1_city_prime_rent",
+   "role": "orchestrator",
+   "passed": true,
+   "checks": {
+    "no_error": true,
+    "no_grounding_warning": true,
+    "citations_resolve": true,
+    "expect_latest:prime_rent/City Core": true,
+    "skill:market-questions": true
+   },
+   "cost_usd": "0.001160851",
+   "latency_s": 8.8,
+   "tool_calls": [
+    "load_skill",
+    "get_metric",
+    "get_coverage"
+   ],
+   "loaded_skills": [
+    "market-questions"
+   ],
+   "error": null,
+   "answer": "**City Core prime office rent is £95–£100 psf on the headline brokers' latest readings (JLL moved to £100.00 psf in Q3 2026 [F57]); Savills' achieved-rent measure is £116.73 psf [F25].**\n\n| Broker | Figure | Period | Measure | Citation |\n|---|---|---|---|---|\n| JLL | £100.00 psf | 2026Q3 | prime rent (\"City\") | [F57] |\n| JLL | £95.00 psf | 2026Q2 | prime rent, incentives 24 months on 10-yr term (\"City\") | [F68] |\n| Cushman & Wakefield | £95 psf | 2026Q2 | prime headline rent, rental map (City Core, exact) | [F94] |\n| BNP Paribas | £95.00 psf | 2026Q2 | prime rent, premium rent reported separately (\"City\") | [F12] |\n| Avison Young | £97.50 psf | 2026Q2 | prime rent, quoted for Northern City/Broadgate (approximate) | [F105] |\n| Savills | £116.73 psf | 2026Q2 | average *achieved* prime rent, H1 2026 (\"City\") | [F25] |\n\nPoints to note:\n- JLL is the only broker with a 2026Q3 City prime rent in the store; the others' latest is Q2 2026.\n- These are not the same measure. BNP Paribas quotes a *premium* rent of £150.00 psf for amenity-rich assets (top floor with terrace) separately from its £95.00 prime [F12]; Savills derives its figure from achieved rents rather than ERVs [F25]; Avison Young's £97.50 is its Northern City/Broadgate quoting area, not the whole City Core [F105].\n- Only Cushman & Wakefield's £95 psf is an exact City Core fit [F94]; the rest are approximate mappings to the \"City\".\n\nI have not blended these into a single market figure — they measure different things.",
+   "proposed": []
+  },
+  {
+   "repeat": 1,
+   "model": "openrouter:deepseek/deepseek-v4.1-flash",
+   "case": "s1_scan",
+   "role": "investigator",
+   "passed": false,
+   "checks": {
+    "no_error": true,
+    "paused_for_approval_or_no_cards": true,
+    "none_approved": true,
+    "surfaced:insolvency_lead": true,
+    "surfaced:ai_letting": false,
+    "not_surfaced:decoy_residential": true,
+    "not_surfaced:decoy_retail": true
+   },
+   "cost_usd": "0.044197544",
+   "latency_s": 78.2,
+   "tool_calls": [
+    "load_skill",
+    "get_mandate",
+    "get_portfolio",
+    "refresh_sources",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "similar_past_decisions",
+    "match_to_mandate",
+    "match_to_mandate",
+    "get_metric",
+    "get_metric",
+    "match_to_mandate",
+    "get_metric",
+    "get_metric",
+    "match_to_mandate",
+    "search_documents",
+    "search_documents",
+    "similar_past_decisions",
+    "search_documents",
+    "similar_past_decisions",
+    "similar_past_decisions",
+    "search_documents",
+    "get_metric",
+    "get_metric",
+    "similar_past_decisions",
+    "search_documents",
+    "get_metric",
+    "get_metric",
+    "compare_brokers",
+    "get_citation",
+    "search_documents",
+    "search_documents",
+    "search_documents",
+    "match_to_mandate",
+    "similar_past_decisions",
+    "search_documents",
+    "get_citation",
+    "get_citation",
+    "get_citation",
+    "investigate_signals",
+    "propose_opportunities"
+   ],
+   "loaded_skills": [
+    "opportunity-scan"
+   ],
+   "error": null,
+   "answer": null,
+   "proposed": [
+    "[SYNTHETIC] Administrators appointed to owner of 45,000 sq ft City of London office bought in 2018"
+   ]
+  }
+ ]
+}

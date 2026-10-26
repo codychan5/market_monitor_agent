@@ -1,0 +1,9 @@
+label: illustrative
+target_submarkets: [City Core, City Fringe, "King's Cross/Euston"]
+size_band_sqft: [30000, 150000]
+strategies: [value-add refurbishment, development and pre-let]
+signals_of_interest: [distressed owners, AI and life-science demand]
+statements:
+  - Buy City offices from distressed owners below replacement cost and refurbish them.
+  - Pre-let new Grade A space to AI and life-science occupiers near King's Cross.
+  - Track the Grade A supply gap that affects lettings at 99 City Road.

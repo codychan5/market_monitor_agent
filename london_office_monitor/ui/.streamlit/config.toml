@@ -1,0 +1,11 @@
+# The web app's look: a navy accent in place of Streamlit's red, in light and dark mode alike. Streamlit reads this
+# file because it sits next to app.py (script-level config), so it applies wherever `lom ui` is started from.
+# Contrast (WCAG): white text on #1F4E79 8.7:1; white text on #2F6DB5 5.3:1, and #2F6DB5 on the dark page 3.6:1.
+[theme]
+showSidebarBorder = true
+
+[theme.light]
+primaryColor = "#1F4E79"
+
+[theme.dark]
+primaryColor = "#2F6DB5"

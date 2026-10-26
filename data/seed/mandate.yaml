@@ -1,0 +1,21 @@
+# ILLUSTRATIVE ONLY: Nan Fung's real investment criteria are not public. This brief exists so the agent can show how
+# signals are matched to a mandate; replace it with the team's own criteria in a pilot.
+label: illustrative
+target_submarkets: [City Core, City Fringe, "King's Cross/Euston", Midtown]
+size_band_sqft: [30000, 150000]
+strategies: [value-add refurbishment, development and pre-let, core-plus]
+signals_of_interest:
+  - distressed owners and refinancing
+  - lease expiries
+  - AI and life-science demand
+  - Grade A supply gap
+  - EPC upgrade (2031 EPC B rule)
+statements:
+  - Buy City Core and City Fringe offices of 30,000 to 150,000 sq ft from distressed owners or forced sellers, below replacement cost.
+  - Refurbish secondary offices to Grade A and EPC B ahead of the 2031 minimum standard for buildings over 1,000 square metres.
+  - Pre-let new Grade A space to AI, technology and life-science occupiers around King's Cross and Euston.
+  - Track the Grade A supply gap and competing schemes that affect lettings at 99 City Road.
+  - Watch refinancing pressure on owners who bought London offices in 2017 and 2018 and now face loan maturities.
+  - Watch lease expiries and occupier moves that leave City buildings vacant or under-let.
+  - Watch Hong Kong and other Asian owners selling London offices, as potential off-market opportunities.
+  - Treat rent and yield movements in our submarkets as evidence for valuation and leasing decisions.

@@ -1,0 +1,41 @@
+# Nan Fung Group's London office assets, from public sources (Endurance Land is Nan Fung's UK platform).
+assets:
+  - name: Regent Quarter
+    address: Regent Quarter, King's Cross, London N1
+    submarket: "King's Cross/Euston"
+    size_sqft: null
+    status: owned (Endurance Land platform)
+    notes: >-
+      Mixed-use estate next to King's Cross station, bought in December 2017 for about £302.75m. A planning
+      resolution in 2023 allows a life-science-led redevelopment. OpenAI leased 88,500 sq ft here (April 2026).
+    source_keys: [costar-regent-quarter-2017, ashurst-openai-2026, nanfung-international]
+  - name: 99 City Road
+    address: 99 City Road, London EC1
+    submarket: City Fringe
+    size_sqft: 475000
+    status: under development
+    notes: >-
+      A 36-storey office tower of 475,000 sq ft at Old Street. Multiplex is the main contractor; construction starts
+      in Q3 2026 and completion is expected in 2030.
+    source_keys: [endurance-99-city-road-2026, nanfung-international]
+  - name: 108 Cannon Street
+    address: 108 Cannon Street, London EC4
+    submarket: City Core
+    size_sqft: 38800
+    status: owned
+    notes: City office of 38,800 sq ft, bought in 2016.
+    source_keys: [nanfung-international]
+  - name: 138 Cheapside
+    address: 138 Cheapside, London EC2
+    submarket: City Core
+    size_sqft: null
+    status: owned
+    notes: City office bought in 2016.
+    source_keys: [nanfung-international]
+  - name: 16 Old Bailey
+    address: 16 Old Bailey, London EC4
+    submarket: City Core
+    size_sqft: null
+    status: owned
+    notes: City office bought in 2015.
+    source_keys: [nanfung-international, mingtiandi-endurance-2018]

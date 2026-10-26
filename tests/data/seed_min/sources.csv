@@ -1,0 +1,4 @@
+source_key,publisher,title,url,published,licence_note
+t-a,Test Broker A,Test report A (illustrative values),https://broker-a.test/reports/q2.pdf,2026-07-15,test data only
+t-b,Test Broker B,Test report B (illustrative values),https://broker-b.test/market/q2,2026-07-20,test data only
+t-c,Test Broker C,Test monthly figures (illustrative values),https://broker-c.test/figures/august,2026-09-10,test data only

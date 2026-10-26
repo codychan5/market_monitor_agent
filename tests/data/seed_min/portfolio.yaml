@@ -1,0 +1,15 @@
+assets:
+  - name: Regent Quarter
+    address: Regent Quarter, King's Cross, London N1
+    submarket: "King's Cross/Euston"
+    size_sqft: null
+    status: owned (test data)
+    notes: Mixed-use estate near King's Cross station; an AI company leased offices here (test data).
+    source_keys: [t-a]
+  - name: 99 City Road
+    address: 99 City Road, London EC1
+    submarket: City Fringe
+    size_sqft: 475000
+    status: development (test data)
+    notes: Office tower completing 2030 (test data).
+    source_keys: [t-b]

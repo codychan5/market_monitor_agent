@@ -1,0 +1,12 @@
+# Install with `crontab -e`, replacing /path/to/market_monitor_agent with the project folder. Times are the machine's
+# local time. cron runs with a short PATH (/usr/bin:/bin), so write uv's full path (from `which uv`) if it lives
+# elsewhere.
+
+# Daily ingest: every day at 06:00. Feeds list only their newest items (two news feeds hold about a day, and the
+# busiest Gazette notice type passes 100 notices a day), so each run pages back 3 days: nothing drops off between runs,
+# and up to two missed runs are caught up.
+0 6 * * * cd /path/to/market_monitor_agent && mkdir -p runs && LOM_LIVE=true uv run lom ingest >> runs/ingest.log 2>&1
+
+# Weekly opportunity scan: every Monday at 07:00, an hour after that day's ingest. What it finds waits for
+# review under Opportunities › To review in the web app.
+0 7 * * 1 cd /path/to/market_monitor_agent && mkdir -p runs && LOM_LIVE=true uv run lom scan >> runs/scan.log 2>&1

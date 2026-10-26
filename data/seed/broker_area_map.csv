@@ -1,0 +1,47 @@
+broker,broker_label,submarket,fit,note
+BNP Paribas,Central London,Central London,exact,
+BNP Paribas,City,City Core,approximate,BNP's City market as a whole; wider than City Core (BNP quotes City Core vacancy separately)
+BNP Paribas,City Core,City Core,exact,BNP's own City Core boundary
+BNP Paribas,West End,West End,exact,BNP's West End market; boundary not defined in the report
+BNP Paribas,Midtown,Midtown,exact,
+BNP Paribas,Southbank,Southbank,exact,
+BNP Paribas,Canary Wharf & Docklands,Canary Wharf/Docklands,exact,
+BNP Paribas,Canary Wharf,Canary Wharf/Docklands,approximate,"Canary Wharf only; narrower (BNP quotes a separate, lower prime rent for the wider Docklands)"
+Savills,Central London,Central London,exact,
+Savills,City,City Core,approximate,Savills' City market as a whole; wider than City Core (Savills quotes City Core and City Fringe vacancy separately)
+Savills,City Core,City Core,exact,
+Savills,City Fringe,City Fringe,exact,
+Savills,West End,West End,approximate,Savills' West End includes fringe submarkets such as Hammersmith and VNEB; wider than West End
+Savills,West End Core (Mayfair/St James's),West End Core,exact,Savills defines the West End Core as Mayfair and St James's
+JLL,Central London,Central London,exact,
+JLL,City,City Core,approximate,JLL's City market as a whole (124m sq ft of stock); wider than City Core
+JLL,West End,West End,exact,JLL's West End market; boundary not defined in the report
+JLL,East London,Canary Wharf/Docklands,approximate,JLL's East London market; boundary not defined in the report
+JLL,Canary Wharf,Canary Wharf/Docklands,approximate,Canary Wharf only; narrower than Canary Wharf/Docklands
+Cushman & Wakefield,Central London,Central London,exact,
+Cushman & Wakefield,Wider City,City Core,approximate,C&W's Wider City includes the City Core and Southbank among its submarkets; much wider than City Core
+Cushman & Wakefield,City Core,City Core,exact,C&W's City Core submarket (rental map)
+Cushman & Wakefield,City (core),City Core,exact,C&W's core City prime yield series
+Cushman & Wakefield,West End,West End,approximate,C&W's West End includes King's Cross and Euston; wider than West End
+Cushman & Wakefield,West End (core),West End Core,exact,C&W's core West End prime yield series
+Cushman & Wakefield,Mayfair & St James's,West End Core,exact,C&W's Mayfair & St James's submarket (rental map)
+Cushman & Wakefield,Midtown,Midtown,exact,C&W's Midtown submarket (rental map)
+Cushman & Wakefield,King's Cross,King's Cross/Euston,approximate,King's Cross only; C&W quotes Euston with Marylebone as a separate submarket
+Cushman & Wakefield,Southbank,Southbank,exact,C&W's Southbank submarket (rental map)
+Cushman & Wakefield,Canary Wharf,Canary Wharf/Docklands,approximate,Canary Wharf only; C&W quotes Docklands as a separate submarket
+Cushman & Wakefield,East London,Canary Wharf/Docklands,approximate,C&W's East London includes Canary Wharf and Stratford; wider than Canary Wharf/Docklands
+Cushman & Wakefield,Clerkenwell,City Fringe,approximate,"Clerkenwell only, one City Fringe submarket; C&W quotes Shoreditch separately"
+Avison Young,Central London,Central London,exact,
+Avison Young,Midtown,Midtown,exact,
+Avison Young,City,City Core,approximate,AY's City market as a whole; wider than City Core
+Avison Young,Northern City / Broadgate,City Core,approximate,"The City submarket for which AY quotes its City prime rent; one submarket, not the whole City Core"
+Avison Young,West End,West End,exact,AY's West End market; boundary not defined on the page
+Avison Young,Mayfair,West End Core,approximate,Mayfair only; narrower than West End Core (Mayfair and St James's)
+Avison Young,Tech Belt,City Fringe,approximate,"AY's Tech Belt spans King's Cross and Farringdon (its prime rent is quoted for both), so it is wider than City Fringe"
+Avison Young,King's Cross/Farringdon,King's Cross/Euston,approximate,One AY prime rent for King's Cross and Farringdon together; adds Farringdon (City Fringe) and omits Euston
+Avison Young,East London,Canary Wharf/Docklands,approximate,"AY's East London market, which includes Canary Wharf; boundary not defined on the page"
+Avison Young,Canary Wharf,Canary Wharf/Docklands,approximate,Canary Wharf only; narrower than Canary Wharf/Docklands
+CBRE,Central London,Central London,exact,
+CBRE,City,City Core,approximate,"CBRE's City, one of its five Central London markets; wider than City Core"
+CBRE,West End,West End,approximate,"CBRE's West End includes Euston (1 Triton Square, NW1 is a West End deal in its Q2 report); wider than West End"
+CBRE,Docklands,Canary Wharf/Docklands,exact,"CBRE's Docklands market includes Canary Wharf (One Eden, E14 is listed under Docklands)"

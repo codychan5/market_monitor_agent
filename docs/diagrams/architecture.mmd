@@ -1,0 +1,206 @@
+---
+config:
+  themeVariables:
+    fontSize: 17px
+  themeCSS: "tspan[font-weight='bold'] { font-size: 21px; } .cluster-label tspan[font-weight='bold'] { font-size: 25px; }"
+  flowchart:
+    wrappingWidth: 600
+    nodeSpacing: 22
+    rankSpacing: 50
+    padding: 12
+    subGraphTitleMargin:
+      top: 4
+      bottom: 26
+---
+flowchart LR
+  subgraph SRC["`**Sources**
+fixed URLs`"]
+    direction LR
+    s1("`**Property news (RSS)**
+City AM · Property Week
+Bisnow London · FT Property
+Property Industry Eye
+Construction Enquirer
+BBC Business`")
+    s2("`**Insolvency notices**
+The Gazette`")
+    s3("`**Interest rates**
+Bank of England:
+Bank Rate, 10-year gilt`")
+    s4("`**Broker figures**
+125 hand-checked figures
+JLL · Savills · CBRE
+BNP Paribas · Avison Young
+Cushman & Wakefield
+(Knight Frank excluded)`")
+    s5("`**Portfolio and mandate**
+Nan Fung: 5 London assets
+illustrative mandate`")
+  end
+
+  subgraph PLB["`**Plumbing**
+fixed code, no AI`"]
+    direction TB
+    p1("`**Fetch, with retries**
+lom setup · lom ingest
+refresh_sources`")
+    p2("`**Parse and filter**
+Gazette: likely property
+owners only`")
+    p3("`**Chunk and embed**
+structure-first chunks
+Qwen3-Embedding 0.6B
+local, 1024-d`")
+    p4("`**Merge and store**
+duplicate stories merged`")
+    p1 --> p2 --> p3 --> p4
+  end
+
+  subgraph DB["`**Database**
+Postgres + pgvector, Docker`"]
+    direction LR
+    d1("`**Facts**
+broker figures, with
+definitions, sources
+and page locators
+Bank of England series
+portfolio and mandate`")
+    d2("`**Text index**
+documents + document-key
+vector · chunks with
+vectors and full text`")
+    d3("`**Opportunity cards**
+and approvals`")
+    d4("`**Telemetry**
+model and tool calls,
+with cost`")
+    d5("`**Conversation memory**
+LangGraph checkpoints`")
+  end
+
+  subgraph MCP["`**Data server**
+MCP “office-data” · 12 tools`"]
+    direction LR
+    m0("`**Gatekeeper**
+FastMCP over HTTP, localhost
+shared-secret auth
+unknown-argument guard`")
+    m1("`**Market figures**
+get_coverage · get_metric
+compare_brokers
+metric_change · get_macro`")
+    m2("`**Document search**
+search_documents: chunk
+vectors + full text +
+document-key vectors,
+fused by reciprocal rank,
+one hit per story`")
+    m3("`**Portfolio fit**
+get_portfolio · get_mandate
+match_to_mandate
+similar_past_decisions`")
+    m4("`**Citations and refresh**
+get_citation
+refresh_sources`")
+  end
+
+  subgraph AGCOL[" "]
+    direction TB
+    subgraph AG["`**Agent**
+LangGraph`"]
+      direction LR
+      subgraph AGL[" "]
+        direction TB
+        a1("`**Agent loop**
+LangGraph create_agent
+GLM-5.3 via OpenRouter
+DeepSeek fallback`")
+        a2("`**Guardrails, in order**
+tool errors → telemetry
+→ skill gating → deadline
+→ call caps → grounding`")
+        a7("`**Grounding check**
+every figure and citation
+must match this turn's
+tool results; 2 rewrites,
+then a visible warning`")
+        a3("`**Skills (playbooks)**
+SKILL.md, loaded on demand
+market-questions
+reconcile-brokers
+market-brief · opportunity-scan
+investigate-signal (sub-agents)`")
+        a1 ~~~ a2 ~~~ a7 ~~~ a3
+      end
+      subgraph AGR["`**Agent tools**`"]
+        direction TB
+        a0("`**Skill loader**
+load_skill · read_skill_file`")
+        a4("`**Investigators**
+investigate_signals:
+parallel sub-agents on
+DeepSeek V4.1 Flash
+read-only MCP tools
+structured result`")
+        a5("`**Judge and score**
+Qwen3.7 Plus checks each
+card against its evidence
+score computed in code`")
+        a6("`**Approval pause**
+propose_opportunities:
+interrupt() until the analyst
+approves or rejects each card`")
+        a0 ~~~ a4 --> a5 --> a6
+      end
+      AGL ~~~ AGR
+    end
+    MOD("`**Models via OpenRouter**
+orchestrator · GLM-5.3
+investigators · DeepSeek V4.1 Flash
+judge · Qwen3.7 Plus
+evaluation compares GLM-5.3,
+DeepSeek V4.1 Flash and Kimi K3`")
+    EVAL("`**Evaluation**
+lom eval: 8 cases × 3 models
+× 2 repeats · code-graded
+$5 cap · separate database`")
+    AG <-->|"model calls"| MOD
+    AG ~~~ EVAL
+  end
+
+  subgraph PPL["`**People and interfaces**`"]
+    direction TB
+    u2("`**Command line**
+lom chat · lom scan
+lom eval · weekly cron scan`")
+    u1("`**Web app**
+Streamlit: chat with
+“How I got this” · Sources
+with “Open original” links
+Pending approvals · Team list`")
+    u3("`**Analyst**
+approves or rejects
+each card`")
+    u4("`**Team**
+sees approved
+cards only`")
+    u2 ~~~ u1 -->|"pending cards"| u3 -->|"approved only"| u4
+  end
+
+  LEG("`**Citations in answers**
+[F123] a broker figure: opens
+the report PDF at its page
+[D12#3] a passage: opens the
+article at the quoted text`")
+
+  SRC --> PLB
+  PLB -->|"owner role"| DB
+  DB <-->|"mcp role<br>read-only +<br>add documents"| MCP
+  MCP <-->|"tool calls<br>over HTTP"| AGCOL
+  DB <-->|"app role: cards, approvals,<br>telemetry, checkpoints"| AGCOL
+  AGCOL <-->|"run_turn<br>resume_turn"| PPL
+  SRC ~~~ LEG
+
+  %% Layout-only wrappers: keep them invisible
+  style AGCOL fill:none,stroke:none
+  style AGL fill:none,stroke:none

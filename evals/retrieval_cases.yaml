@@ -1,0 +1,98 @@
+# Questions for comparing embedding models with `lom eval-embedders` (26 Oct 2026). Each topic is asked once in English
+# and once in Traditional Chinese, and `relevant` lists the URL of every stored document that answers it, so the same
+# answer must be found from either language. The corpus is what `lom setup` stores: the fixture snapshot and the
+# internal documents. Questions are worded the way an analyst would ask, not copied from titles.
+topics:
+  - id: r01_owner_in_administration
+    relevant: ["https://synthetic.invalid/gazette/example-office-holdings"]
+    en: Has any owner of a City office building gone into administration?
+    zh: 有沒有金融城寫字樓的業主進入破產管理程序？
+
+  - id: r02_ai_lease_kings_cross
+    relevant: ["https://synthetic.invalid/news/example-ai-labs-kings-cross"]
+    en: Which artificial intelligence company signed a large office lease near King's Cross?
+    zh: 哪家人工智能公司在國王十字附近簽了大面積的寫字樓租約？
+
+  - id: r03_grade_a_pipeline
+    relevant: ["https://synthetic.invalid/news/refurbishments-dominate-starts"]
+    en: Is the pipeline of new top-quality office space drying up?
+    zh: 新落成的甲級寫字樓供應是否正在萎縮？
+
+  - id: r04_missed_interest
+    relevant: ["https://synthetic.invalid/news/example-tower-missed-payment"]
+    en: Is any landlord of a City office behind on its loan interest?
+    zh: 有沒有金融城寫字樓業主拖欠貸款利息？
+
+  - id: r05_why_we_declined
+    relevant: ["https://internal.invalid/ic-note-example-house-2024"]
+    en: Why did our investment committee turn down Example House?
+    zh: 我們的投資委員會為何否決收購Example House？
+
+  - id: r06_ai_tenant_terms
+    relevant: ["https://internal.invalid/leasing-note-kings-cross-2025"]
+    en: What lease length and rent-free period would we accept from AI tenants near King's Cross?
+    zh: 對國王十字一帶的人工智能租戶，我們可接受多長的租約和免租期？
+
+  - id: r07_epc_target
+    relevant: ["https://internal.invalid/esg-policy", "https://internal.invalid/investment-policy"]
+    en: What energy performance rating must our offices reach before 2031?
+    zh: 我們的寫字樓須在2031年前達到甚麼能源表現評級？
+
+  - id: r08_refurbishment_lessons
+    relevant: ["https://internal.invalid/debrief-example-court-2023"]
+    en: What did we learn about cost overruns when refurbishing an old office?
+    zh: 翻新舊寫字樓時，我們從成本超支中學到了甚麼教訓？
+
+  - id: r09_insolvency_checks
+    relevant: ["https://internal.invalid/screening-checklist"]
+    en: What should we check first when the owner of a City office becomes insolvent?
+    zh: 金融城寫字樓業主無力償債時，我們應先核查甚麼？
+
+  - id: r10_spitalfields_loan
+    relevant: ["https://www.bisnow.com/news/london/office/ing-dbs-provide-pound1b-loan-for-j-p-morgan-s-one-spitalfields-refurb"]
+    en: Who lent the money for the One Spitalfields office refurbishment?
+    zh: One Spitalfields寫字樓翻新項目的貸款由誰提供？
+
+  - id: r11_rents_above_estimates
+    relevant: ["https://www.bisnow.com/news/london/office/rents-beat-expectations-as-gpe-sees-strong-london-market-and-flex-space-boost"]
+    en: Which London landlord signed office leases above its own rental estimates?
+    zh: 哪個倫敦業主的寫字樓租約租金高於其自身預期？
+
+  - id: r12_us_law_firms
+    relevant: ["https://www.cityam.com/us-law-firms-outpace-london-rivals-in-race-for-larger-city-offices/"]
+    en: Are American law firms moving into bigger City offices than British firms?
+    zh: 美國律師事務所是否比英國律所更積極遷往金融城更大的寫字樓？
+
+  - id: r13_business_rates
+    relevant: ["https://www.cityam.com/healeys-1bn-london-office-raid-would-be-attack-on-growth/",
+               "https://www.cityam.com/city-of-london-urged-against-business-rates-hikes-to-cover-70m-shortfall/",
+               "https://www.cityam.com/west-end-boss-urges-healey-to-curb-eye-watering-business-rates/",
+               "https://www.propertyweek.com/news/inflation-triggers-1-1nbn-business-rates-rise-next-april"]
+    en: Will business rates on London offices go up?
+    zh: 倫敦寫字樓的商業差餉會否上調？
+
+  - id: r14_towers_heritage
+    relevant: ["https://www.cityam.com/ministers-back-city-in-tower-of-london-heritage-row/"]
+    en: Did ministers drop their heritage objection to tall towers near the Tower of London?
+    zh: 部長是否撤回了對倫敦塔附近摩天大樓的文物保護反對？
+
+  - id: r15_battersea_refinancing
+    relevant: ["https://www.bisnow.com/news/london/capital-markets/battersea-power-station-lands-280m-refinancing-final-phase-megaproject",
+               "https://www.cityam.com/battersea-power-station-nears-completion-with-280m-loan/"]
+    en: Has Battersea Power Station refinanced to fund its last phases?
+    zh: 巴特西發電站是否已再融資以完成最後階段？
+
+  - id: r16_bank_rate_hold
+    relevant: ["https://www.cityam.com/ftse-100-live-stocks-to-fall-as-markets-brace-for-interest-rate-call/"]
+    en: Did the Bank of England change interest rates at its September meeting?
+    zh: 英倫銀行在九月的會議上有否調整利率？
+
+  - id: r17_family_loan_defaults
+    relevant: ["https://www.ft.com/content/7f93f4b4-beca-4566-ad60-900910d31320?syn-25a6b1a6=1"]
+    en: Which wealthy family is selling UK property after defaulting on loans?
+    zh: 哪個富豪家族因貸款違約而出售英國物業資產？
+
+  - id: r18_letting_near_waterloo_bridge
+    relevant: ["https://www.propertyweek.com/news/helical-lets-three-floors-of-brettenham-house-to-fgs-global"]
+    en: Which advisory firm is taking floors in an office near Waterloo Bridge?
+    zh: 哪家顧問公司租下了滑鐵盧橋附近寫字樓的幾層？

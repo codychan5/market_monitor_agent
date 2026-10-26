@@ -1,0 +1,21 @@
+# Postgres 17 with pgvector for the London Office Monitor. Published on localhost only.
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: lom_owner
+      # Local development only: override LOM_OWNER_DB_PASSWORD in .env for anything shared.
+      POSTGRES_PASSWORD: ${LOM_OWNER_DB_PASSWORD:-lom_owner_local}
+      POSTGRES_DB: lom
+    ports:
+      - "127.0.0.1:${LOM_DB_PORT:-55433}:5432"
+    volumes:
+      - lom_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lom_owner -d lom"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  lom_pg: {}
